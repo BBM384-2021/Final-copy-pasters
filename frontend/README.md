@@ -4,6 +4,12 @@
 ```
 npm install
 ```
+```
+npm install --save axios
+```
+```
+npm install --save vuex 
+```
 
 ### Compiles and hot-reloads for development
 ```
