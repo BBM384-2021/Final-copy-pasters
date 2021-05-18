@@ -12,13 +12,13 @@
           <a href="#" class="logo">Logo</a>
         </div>
         <ul>
-          <li><a href="#" class="SignUp">Sign Up</a></li>
+          <li><a href="#" class="SignUp" @click="goToSignUp()">Sign Up</a></li>
           <li><a href="#" class="LogIn" @click="goToSignIn()">Log In</a></li>
           <li><a href="#" class="About">About</a></li>
         </ul>
       </div>
       <div class="center">
-        <h1>Union Of Interest</h1>
+        <h1>Union of Interests</h1>
         <h2>The best platform to find people<br>with the same interests as you.<br></h2>
       </div>
       
@@ -36,6 +36,10 @@ export default {
   methods: {
     goToSignIn(){
       this.$router.push({path: "/SignIn"});
+    },
+
+    goToSignUp(){
+      this.$router.push({path: "/SignUp"});
     }
   },
   components: {
@@ -45,7 +49,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,900;1,900&display=swap');
   *{
     margin: 0;
     padding: 0;
@@ -61,6 +65,7 @@ export default {
     grid-area:header;
     background: rgba($color: white, $alpha: 0.5);
     border-bottom: 0.2em solid palevioletred;
+    
   }
   .logo{
     margin-left: 1%;
@@ -76,14 +81,14 @@ export default {
   }
 
   .center{
-    background: rgba($color: #ffffff, $alpha: 0.5);
+    background: rgba($color: #ffffff, $alpha: 0.8);
     border-radius: 5em;
     border:0.2em solid black;
     text-align: center;
-    font-family: Alegreya Sans;
+
     h1{
-      font-size: 300%;
-      margin-top:1em;
+      font-size: 500%;
+      margin-top:0.7em;
     }
     h2{
       margin-top:0.5em;
@@ -95,6 +100,7 @@ export default {
  /*  float: right;
     margin-right: 2%;
     margin-top: 0.5%;*/
+    margin-top:.5%;
   }
   .header ul li{
     list-style: none;
@@ -108,9 +114,9 @@ export default {
     color:rgb(95, 3, 138);
     text-decoration: none;
     font-family: Alegreya Sans;
-    font-size: 130%;
-    
+    font-size: 130%;  
   }
+  
   .header ul li .About{
     color:rgb(51, 50, 51);
   }
