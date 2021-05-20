@@ -49,11 +49,7 @@ export default{
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital@1&display=swap');
-template{
-    height: 1500px;
-    margin: 0;
-    padding: 0;
-}
+
 .main{
     display: grid;
     grid-template-rows: 1fr 10fr;
@@ -102,7 +98,7 @@ img{
     border-radius: 2em;
     border:0.2em solid rgb(137, 109, 138);
     overflow: hidden;
-
+    object-fit:cover;
     
 }
 .select-subclub:hover, a:hover{
