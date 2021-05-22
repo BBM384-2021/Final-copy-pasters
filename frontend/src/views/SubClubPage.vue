@@ -14,16 +14,7 @@
                 </div>
                 <div v-if="this.show" class="big-box-member">  
                     <div class="timeline-members-chatroom-event-ratereview">
-                      <!--  <div class="buttons">
-                        <ul>
-                            <li><a href="#" id="timeline" >Timeline</a></li>
-                            <li><a href="#" id="members" >Members</a></li>
-                            <li><a href="#" id="chatroom">Chat Room</a></li>
-                            <li><a href="#" id="events">Events</a></li>
-                            <li><a href="#" id="ratereview">Rate&#38;Review</a></li>
-                        </ul>
-                        </div>
-                        <div class="content"></div> -->
+                     
                     </div>
                 </div>
 
@@ -180,25 +171,9 @@ img{
 .big-box-member{
     grid-row: 2/3;
     grid-column: 1/2;
-    display: grid;
-   
-    grid-template-rows: 20% 40% 1fr;
-    grid-template-columns: 1fr 70% 1fr;
-    grid-template-areas: ". . ."
-                    ". timelineMembersChatRoomEventsRateReview ."
-                    ". . .";
-                        
-
 }
 
-.timeline-members-chatroom-event-ratereview{
-    grid-area: timelineMembersChatRoomEventsRateReview;
-    
-    border-radius: 2em;
-    border: 0.2em solid rgb(245, 219, 227);
-    justify-self: center;
-   
-}
+
 
 .about{
     grid-area: about;
