@@ -7,7 +7,9 @@
             <div class="progress-bar-back"></div>
             <div class="finish">Finish</div>
         </div>
+        <div class="bottom_line"></div>
     </div>
+
 </template>
 
 <script>
@@ -21,6 +23,7 @@ export default {
 
 :root{
     --primary-color: #BA7EA0;
+    --bolder-color: #742957;
 }
 
 *{
@@ -37,6 +40,7 @@ body {
 
     .container{
         width: 100%;
+        max-height: 100px;
         margin: 0;
         padding: 1.6em;
         background: #eaeaea;
@@ -52,28 +56,32 @@ body {
     .logo{
         text-decoration: none;
         font-weight: bold;
-        color: #742957;
+        color: var(--bolder-color);
         font-size: 1.5em;
         justify-self: center;
+        font-family: 'Alegreya Sans', sans-serif;
     }
 
     .start{
-        font-weight: regular;
+        font-weight: 500;
         color: black;
         font-size: 1.3em;
         justify-self: end;
+        font-family: 'Alegreya Sans', sans-serif;
     }
 
     .finish{
-        font-weight: regular;
+        font-weight: 500;
         color: black;
         font-size: 1.3em;
         justify-self: start;
+        font-family: 'Alegreya Sans', sans-serif;
     }
 
     .progress-bar-front{
         content: '';
         background: var(--primary-color);
+        margin:0;
         width: 34%;
         height: 1.6em;
         border-radius: 50px;
@@ -92,6 +100,11 @@ body {
         grid-row-start: 1;
         grid-column-start: 3;
     }  
+    .bottom_line{
+        background-color: var(--primary-color);
+        height: .5em;
+        width:100%;
+    }
 }
 
 @media only screen and (min-width: 768px){
@@ -106,7 +119,7 @@ body {
 
 @media only screen and (min-width: 1024px){
     .container .logo{
-        font-size: 2em;
+        font-size: 2.1em;
     }
     .start, .finish{
         font-size: 1.8em;

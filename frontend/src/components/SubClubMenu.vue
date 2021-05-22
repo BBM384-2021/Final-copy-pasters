@@ -1,40 +1,38 @@
 <template>
-<div class="container">
+<form class="container" @submit.prevent="">
     <div class="vertical-menu" v-for="category in categories" :key="category.name">
             <button @click="makeActive(category)" :class="{'active':active.includes(category)}" class="accordion">{{category.name}}</button>
             <div class="panel" v-if="active.includes(category)">
                 <ul class="menu">
                     <li v-for="sub_club in category.sub_clubs" :key="sub_club.name">
-                        <input type="checkbox" :id="sub_club.name" v-model="selected_sub_clubs" :value="sub_club.name"/>
-                        <label :for="sub_club.name"><img :src="require('@/assets/'+sub_club.name + '_mini.jpeg')" /></label>
+                        <input type="checkbox" :id="sub_club.name" v-model="selected_sub_clubs" :value="sub_club"/>
+                        <label :for="sub_club.name"><img :src="require('@/assets/'+sub_club.name+'_mini.jpeg')" /></label>
                         <div class="sub-club-name"> {{sub_club.name}}</div> 
                     </li>
                 </ul>
             </div>
     </div>
     <div>
-        <h2>Selected Sub-Clubs:</h2>
-        <p>You can remove the sub-club by clicking the picture of it</p>
+        <h2 class="selected_sub_clubs">Selected Sub-Clubs:</h2>
+        <p class="remove_sc">You can remove the sub-club by clicking the picture of it</p>
         <div>
-            <ul class="selected_sub_clubs">
+            <ul class="selected_sc_list">
                 <li v-for="sub_club in selected_sub_clubs" :key="sub_club.name">
-                    <label @click="removeSubClub(sub_club)"><img :src="require('@/assets/'+sub_club + '_mini.jpeg')" /></label>
-                    <div class="sub-club-name"> {{sub_club}}</div> 
+                    <label @click="removeSubClub(sub_club)"><img :src="require('@/assets/'+sub_club.name+'_mini.jpeg')" /></label>
+                    <div class="sub-club-name"> {{sub_club.name}}</div> 
                 </li>
             </ul>
-            
         </div>
     </div>
-</div>
+    <div class="next_button">
+        <button class="next">Next</button>
+    </div>
+</form>
 
-
-
-    
 </template>
 
 <script>
 export default {
-
     data(){
         return{
             categories: [
@@ -90,36 +88,42 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap');
     :root{
     --primary-color: #BA7EA0;
+    --bolder-color: #742957;
     }
 
     .container{
-      padding:15%;
+      padding-left: 5%;
+      padding-right: 5%;
+      padding-top: 10px;
+      padding-bottom:5%;
       font-family: 'Alegreya Sans', sans-serif;
       
         .vertical-menu {
             border-color: black;
-            padding-left:10%;
-            padding-right:10%;
+            padding-left:15%;
+            padding-right:15%;
         }
     
-        .vertical-menu .accordion {
-            background-color: #eeeeee;
-            color: #444;
+        .accordion {
+            background-color: #e0e0e0;
+            color: black;
             cursor: pointer;
             padding: 18px;
             width: 100%;
             border: .1px solid white;
             text-align: left;
+            display: flex;
+            align-items: center;
             outline: none;
-            font-size: 15px;
             transition: 0.4s;
             text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 7px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            font-weight:500;   
         }
     
         .accordion:after {
@@ -127,12 +131,15 @@ export default {
             font-weight: bold;
             float: right;
             margin-left: 5px;
-            font-size: 1.1em;
+            font-size: 1.5em;
+            margin-left: auto;
+            font-weight:700; 
         }
         
         .active:after {
             content: "\2212";
-            font-size: 1.1em;
+            font-size: 1.5em;
+            font-weight:500; 
         }
 
         .vertical-menu .accordion.active {
@@ -161,7 +168,7 @@ export default {
         justify-content: center;
 
         .sub-club-name {      
-            font-size: 1.2em;
+            font-size: 1.4em;
             position:relative;
             display: flex;
             justify-content: center;
@@ -208,8 +215,8 @@ export default {
     }
 
     label img {
-    height: 5em;
-    width: 5em;
+    height: 6em;
+    width: 6em;
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
     border-radius: 10px;
@@ -233,20 +240,44 @@ export default {
     z-index: -1;
     }
 
-    .selected_sub_clubs{
+    .selected_sc_list{
         padding: 0;
         margin: 0;
         display: flex;
         justify-content: start;
         flex-wrap: wrap;
     }
-    h2{
-        margin-top:40px;
-        margin-left: 20px;
+    .selected_sub_clubs{
+        margin-top: 40px;
+        margin-left: 30px;
+        font-size: 1.8em;
+        color:var(--primary-color);
     }
-    p{
-        margin-left: 10px;
+    .remove_sc{
+        margin-left: 5px;
+        font-size: 1.4em;
+    }
+    .next_button{
+        margin-top: 15px;
+        display:flex;
+        justify-content:flex-end;
     }
     
+    .next{
+        background-color: var(--primary-color);
+        color: white;
+        cursor: pointer;
+        padding: 12px;
+        width: 100px;
+        height:60px;
+        border: .1px solid white;
+        text-align: center;
+        outline: none;
+        transition: 0.4s;
+        text-decoration: none;
+        font-size: 1.5em;
+        border-radius: 10px;
+        font-weight: 500;
+    }
             
 </style>
