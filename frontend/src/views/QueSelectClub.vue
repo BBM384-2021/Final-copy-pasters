@@ -27,10 +27,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap');
     :root{
     --primary-color: #BA7EA0;
+    --bolder-color: #742957;
   }
 
   .page{
@@ -39,18 +40,20 @@ export default {
   }
   .title{
     font-family: 'Alegreya Sans', sans-serif;
-    color:var(--primary-color);
+    color:black;
     font-size: 2em;
-    padding: 30px;
-    padding-left: 50px;
-    margin:0;
+    padding: 3%;
+    padding-left: 6%;
+    margin:auto;
+    font-weight: bold;
+    
   }
   p{
     font-family: 'Alegreya Sans', sans-serif;
     font-size: 1.5em;
     font-weight: 500;
     margin:0;
-    padding-bottom: 20px;
+    padding-bottom: 3%;
   }
 
 </style>
