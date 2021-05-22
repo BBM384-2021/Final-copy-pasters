@@ -8,9 +8,7 @@ import QuestionnaireResult from "../components/QuestionnaireResult.vue"
 import EntryPage from "../views/EntryPage.vue"
 import SubClubPage from "../views/SubClubPage.vue"
 
-
 Vue.use(VueRouter);
-
 
 const routes = [
   {
