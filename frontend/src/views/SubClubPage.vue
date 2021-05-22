@@ -329,18 +329,6 @@ p#join{
 }  
 
 
-
-
-ul li{
-    
-    
-    display: inline;
-    margin-right:1em;
-    margin-top:-1.5em;
- 
-}
-
-
 @media all and (max-width: 768px){
     h1{
         //font-size: 100%;
