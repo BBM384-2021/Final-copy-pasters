@@ -28,13 +28,13 @@ const routes = [
   },
 
   {
-    path:"/questionnaire",
+    path:"/Questionnaire",
     name:Questionnaire,
     component: () =>
       import( "../components/Questionnaire.vue")
   },
   {
-    path:"/questionnaire-result-page",
+    path:"/QuestionnaireResult",
     name:QuestionnaireResult,
     component: () =>
       import( "../components/QuestionnaireResult.vue")
