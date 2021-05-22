@@ -12,7 +12,7 @@
                         
                     </div>
                 </div>
-                <div v-if="!this.show" class="big-box-member">  
+                <div v-if="this.show" class="big-box-member">  
                     <div class="timeline-members-chatroom-event-ratereview">
                       <!--  <div class="buttons">
                         <ul>
