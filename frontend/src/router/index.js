@@ -17,29 +17,34 @@ const routes = [
   {
     path: "/SignIn",
     name: SignIn,
-    component:() =>
-      import("../components/SignIn.vue")
+    component: SignIn
   },
   {
     path: "/SignUp",
     name: SignUp,
-    component:() =>
-      import("../components/SignUp.vue")
+    component:SignUp
   },
 
   {
     path:"/questionnaire",
     name:Questionnaire,
-    component: () =>
-      import( "../components/Questionnaire.vue")
+    component: Questionnaire
   },
   {
     path:"/questionnaire-result-page",
     name:QuestionnaireResult,
-    component: () =>
-      import( "../components/QuestionnaireResult.vue")
-  }
-  
+    component: QuestionnaireResult
+  },
+  {
+    path: '/sub_club_selection',
+    name: 'QueSelectClub',
+    component: QueSelectClub
+  },
+  {
+    path: '/join_more_sub_clubs',
+    name: 'JoinMoreSubClubs',
+    component: JoinMoreSubClubs
+  },
 ];
 
 const router = new VueRouter({
