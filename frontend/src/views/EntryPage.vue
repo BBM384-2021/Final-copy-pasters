@@ -1,6 +1,7 @@
 <template>
     <header-helper>
-        <div slot="my-subclubs">
+    </header-helper>
+            <div class="my-subclubs">
             <div class="main">
                 <h2>My Sub-Clubs</h2>
             <form class="subclub-form" action="#">
@@ -17,7 +18,6 @@
             </form>
             </div>
         </div>
-    </header-helper>
 </template>
 
 <script>
@@ -35,12 +35,12 @@ export default{
             subclubs:[{ 
                     id:1,
 	    		    name:"Yoga",
-	    		    img: require("../assets/yoga.jpg")
+	    		    img: require("../assets/sub-clubs-images/Yoga.jpg")
             },
 	        {
                     id:2,
-	    		    name: "Football",
-                    img:require("../assets/football.jpg")}]
+	    		    name: "Piano",
+                    img:require("../assets/sub-clubs-images/Piano.jpg")}]
 	    }
       }
     }
