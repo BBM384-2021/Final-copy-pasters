@@ -41,19 +41,19 @@ export default {
   .title{
     font-family: 'Alegreya Sans', sans-serif;
     color:black;
-    font-size: 2em;
-    padding: 3%;
-    padding-left: 6%;
+    font-size: 1.5em;
+    padding: 2%;
+    padding-left: 7%;
     margin:auto;
     font-weight: bold;
     
   }
   p{
     font-family: 'Alegreya Sans', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 500;
     margin:0;
-    padding-bottom: 3%;
+    padding-bottom: 2.5%;
   }
 
 </style>
