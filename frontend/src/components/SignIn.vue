@@ -10,9 +10,9 @@
           <div class="logo">
             <a href="#" class="logo">Logo</a>
           </div>
-          <form class="login" action="#">
-            <input type="email" class="email" placeholder="Email" />
-            <input type="password" class="input" placeholder="Password"/>
+          <form @submit.prevent="submitForm" class="login" action="#">
+            <input type="email" v-model="email" class="email" placeholder="Email" />
+            <input type="password" v-model="password" class="input" placeholder="Password"/>
             <button class="login">Log In</button>
             <hr class="hr-text" data-content="Or">
             <button class="facebook" ><img src="~@/assets/fb.jpg" width="20" height="20" style="float:left">Continue with Facebook</button>
@@ -30,16 +30,42 @@
 
 <script>
 
-  
-  export default {
+import axios from 'axios';
+
+export default {
   name: "SignIn",
   methods: {
     goToSignUp(){
       this.$router.push({path: "/SignUp"});
-    }
+    },
+    async submitForm(){
+      const response = await axios.post('User/authenticate',{
+        email: this.email,
+        password: this.password
+      }).then((response) => {
+        this.$router.push('/sub_club_selection');
+      }).catch((error) =>{
+        console.log(error)
+      })
+
+//      localStorage.setItem('token', response.data.jwtToken);
+    },
+
+  },
+ 
+  data(){
+    return{
+      email:'',
+      password: '',
+
+    };
+  },
+  components:{
+
   }
-    
+
   }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

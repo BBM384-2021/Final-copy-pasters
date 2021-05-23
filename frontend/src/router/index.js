@@ -5,6 +5,9 @@ import SignIn from "../components/SignIn.vue"
 import SignUp from "../components/SignUp.vue"
 import Questionnaire from "../components/Questionnaire.vue";
 import QuestionnaireResult from "../components/QuestionnaireResult.vue"
+import QueSelectClub from '../views/QueSelectClub.vue'
+
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -25,6 +28,11 @@ const routes = [
     name: SignUp,
     component:() =>
       import("../components/SignUp.vue")
+  },
+  {
+    path: '/sub_club_selection',
+    name: 'QueSelectClub',
+    component: QueSelectClub
   },
 
   {

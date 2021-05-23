@@ -10,15 +10,16 @@
           <div class="logo">
             <a href="#" class="logo">Logo</a>
           </div>
-          <form class="sign-up" action="#">
-            <input type="name" class="name" placeholder="Full Name" />
-            <input type="email" class="email" placeholder="Email" />
-            <input type="password" class="password" placeholder="Password"/>
+          <form @submit.prevent="submitForm" class="sign-up" action="#">
+            <input type="name" v-model="user.name" class="name" placeholder="Full Name" required/>
+            <input type="email" v-model="user.email" class="email" placeholder="Email" required/>
+            <input type="password" v-model="user.password" class="password" placeholder="Password" required/>
             <button class="sign-up">Sign Up</button>
             <hr class="hr-text" data-content="Or">
-            <button class="facebook" ><img src="~@/assets/fb.jpg" width="20" height="20" style="float:left">Continue with Facebook</button>
-            <button class="google"><img src="~@/assets/google.jpg" width="20" height="20" style="float:left;margin-right:0.5em">Continue with Google</button>
+            <button class="facebook" ><img src="~@/assets/fb.jpg" width="20" height="20" style="float:left">Continue with Facebook</button> <!--src linkini değiştir-->
+            <button class="google"><img src="~@/assets/google.jpg" width="20" height="20" style="float:left;margin-right:0.5em">Continue with Google</button> <!--src linkini değiştir-->
             <a href="#">Forgot password?</a>
+           
           </form>
         </div>
         <div class="small-box">
@@ -30,17 +31,47 @@
 </template>
 
 <script>
+import axios from 'axios';
 
-  
-  export default {
+export default {
   name: "SignUp",
   methods: {
     goToSignIn(){
       this.$router.push({path: "/SignIn"});
+    },
+    async submitForm(e){
+      e.preventDefault();
+      const res = await axios.post('User/register', {
+        title: "title",
+        firstName: this.user.name,
+        lastName: this.user.name,
+        email: this.user.email,
+        password: this.user.password,
+        confirmPassword: this.user.password,
+        acceptTerms: true
+      }).then((response) => {
+        console.warn("what")
+        console.log(response)
+      }).catch((error) => {
+        console.warn("what")
+        console.log(error)
+      });
+      console.log("whatt");
+      this.$router.push('signIn');
     }
-  }
+  },
+  data(){
+    return{
+      user:[{
+        name:'',
+        email:'',
+        password: '',
+      }]
+    }
+  },
+  
     
-  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -171,7 +202,6 @@
 
       padding: 0 .5em;
       line-height: 1.5em;
-      // this is really the only tricky part, you need to specify the background color of the container element...
       color: #252525;
       background-color: #f5e7f3;
     }
