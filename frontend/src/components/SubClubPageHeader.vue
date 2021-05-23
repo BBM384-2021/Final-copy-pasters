@@ -137,6 +137,7 @@
       justify-self: start;
       align-self: center;
       margin-bottom: 30%;
+      z-index:1000;
     }
     .chevron-down-btn{
       background-color: transparent; 
@@ -146,25 +147,31 @@
       cursor: pointer; 
       
     }
+
+    .dropdown-content ul {
+      text-align:center;
+    }
     .dropdown-content ul li {
-      display: block;
+      
       border-bottom: 0.1rem solid #a56a9d;
-      padding: 4%;
+      
     }
 
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #f9f9f9;
-      margin-left: -2%;
+      margin-left: -5%;
       border-radius: 1em;
       border: 0.2em solid #a56a9d;
       margin-top: -1%;
+     
     }
 
     .dropdown-content ul li a{
       color: black;
       text-decoration: none;
+      justify-self: center;
      }
 
 
