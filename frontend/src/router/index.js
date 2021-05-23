@@ -5,6 +5,8 @@ import SignIn from "../components/SignIn.vue"
 import SignUp from "../components/SignUp.vue"
 import Questionnaire from "../components/Questionnaire.vue";
 import QuestionnaireResult from "../components/QuestionnaireResult.vue"
+import QueSelectClub from '../views/QueSelectClub.vue'
+import JoinMoreSubClubs from '../views/JoinMoreSubClubs.vue'
 Vue.use(VueRouter);
 
 const routes = [
