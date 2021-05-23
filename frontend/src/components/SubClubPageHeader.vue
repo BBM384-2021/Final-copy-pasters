@@ -32,8 +32,7 @@
               </div>
             </div>
         </div>
-          <slot name="my-subclubs"></slot>      
-          <slot name="subclub-page"></slot>    
+  
       </main> 
     </body>
   </article>
@@ -50,12 +49,12 @@
           subclubs:[{ 
             id:1,
 	    		  name:"Yoga",
-	    		  img: require("../assets/yoga.jpg")
+	    		  img: require("../assets/sub-clubs-images/Yoga.jpg")
 	    	  },
 	        {
             id:2,
-	    		  name: "Football",
-            img:require("../assets/football.jpg")}]
+	    		  name: "Piano",
+            img:require("../assets/sub-clubs-images/Piano.jpg")}]
 	    	}
       }
   },  
@@ -77,7 +76,7 @@
     }
 
     main{
-        height: 100vh;
+        height: 50px;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 10fr;
@@ -136,7 +135,7 @@
     .chevron-down{
       grid-area: chevron-down;
       justify-self: start;
-      align-self: end;
+      align-self: center;
       margin-bottom: 30%;
     }
     .chevron-down-btn{
@@ -180,8 +179,6 @@
       font-size: 250%;
       cursor: pointer; 
     }
-
-
     .logo{
       grid-area: logo;
       justify-self: start;
