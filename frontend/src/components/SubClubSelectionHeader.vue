@@ -40,9 +40,9 @@ body {
 
     .container{
         width: 100%;
-        max-height: 100px;
+        max-height: 90px;
         margin: 0;
-        padding: 1.6em;
+        padding: 1.2em;
         background: #eaeaea;
         display: grid;
         grid-template-columns: 30% 15% auto 15%;
@@ -57,7 +57,7 @@ body {
         text-decoration: none;
         font-weight: bold;
         color: var(--bolder-color);
-        font-size: 1.5em;
+        font-size: 1.3em;
         justify-self: center;
         font-family: 'Alegreya Sans', sans-serif;
     }
@@ -65,7 +65,7 @@ body {
     .start{
         font-weight: 500;
         color: black;
-        font-size: 1.3em;
+        font-size: 1.2em;
         justify-self: end;
         font-family: 'Alegreya Sans', sans-serif;
     }
@@ -73,7 +73,7 @@ body {
     .finish{
         font-weight: 500;
         color: black;
-        font-size: 1.3em;
+        font-size: 1.2em;
         justify-self: start;
         font-family: 'Alegreya Sans', sans-serif;
     }
@@ -83,7 +83,7 @@ body {
         background: var(--primary-color);
         margin:0;
         width: 34%;
-        height: 1.6em;
+        height: 1.4em;
         border-radius: 50px;
         grid-row-start: 1;
         grid-column-start: 3;
@@ -95,7 +95,7 @@ body {
         background: #c4c4c4;
         width: 100%;
         justify-self: center;
-        height: 1.6em;
+        height: 1.4em;
         border-radius: 50px;
         grid-row-start: 1;
         grid-column-start: 3;

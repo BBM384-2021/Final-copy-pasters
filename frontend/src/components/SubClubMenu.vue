@@ -1,12 +1,12 @@
 <template>
 <form class="container" @submit.prevent="">
-    <div class="vertical-menu" v-for="category in categories" :key="category.name">
-            <button @click="makeActive(category)" :class="{'active':active.includes(category)}" class="accordion">{{category.name}}</button>
-            <div class="panel" v-if="active.includes(category)">
+    <div class="vertical-menu" v-for="category in $store.state.categories" :key="category.name">
+            <button @click="$store.commit('makeActive',category)" :class="{'active':$store.state.active.includes(category)}" class="accordion">{{category.name}}</button>
+            <div class="panel" v-if="$store.state.active.includes(category)">
                 <ul class="menu">
                     <li v-for="sub_club in category.sub_clubs" :key="sub_club.name">
-                        <input type="checkbox" :id="sub_club.name" v-model="selected_sub_clubs" :value="sub_club"/>
-                        <label :for="sub_club.name"><img :src="require('@/assets/'+sub_club.name+'_mini.jpeg')" /></label>
+                        <input type="checkbox" :id="sub_club.name" :value="sub_club"/>
+                        <label :for="sub_club.name" @click="$store.commit('addSubClub',sub_club)"><img :src="require('@/assets/'+sub_club.name+'_mini.jpeg')" /></label>
                         <div class="sub-club-name"> {{sub_club.name}}</div> 
                     </li>
                 </ul>
@@ -17,8 +17,8 @@
         <p class="remove_sc">You can remove the sub-club by clicking the picture of it</p>
         <div>
             <ul class="selected_sc_list">
-                <li v-for="sub_club in selected_sub_clubs" :key="sub_club.name">
-                    <label @click="removeSubClub(sub_club)"><img :src="require('@/assets/'+sub_club.name+'_mini.jpeg')" /></label>
+                <li v-for="sub_club in $store.state.selected_sub_clubs" :key="sub_club.name">
+                    <label @click="$store.commit('removeSubClub',sub_club)"><img :src="require('@/assets/'+sub_club.name+'_mini.jpeg')" /></label>
                     <div class="sub-club-name"> {{sub_club.name}}</div> 
                 </li>
             </ul>
@@ -33,58 +33,6 @@
 
 <script>
 export default {
-    data(){
-        return{
-            categories: [
-                {name:'Sports', sub_clubs:[
-                    {name: 'Basketball'},
-                    {name: 'Football'},
-                    {name: 'Yoga'},
-                    {name: 'Tennis'},
-                    {name: 'Swimming'},
-                ]},
-                {name:'Music', sub_clubs:[
-                    {name: 'Violin'},
-                    {name: 'Piano'},
-                    {name: 'Guitar'},
-                    {name: 'Electronic Music'},
-                    {name: 'Rock Music'},
-                ]},
-                {name:'Visual Arts', sub_clubs:[
-                    {name: 'Painting'},
-                    {name: 'Drawing'},
-                    {name: 'Sculpture'},
-                    {name: 'Ceramics'},
-                    {name: 'Photography'},
-                ]},
-                {name:'Hobbies', sub_clubs:[
-                    {name: 'Puzzle'},
-                    {name: 'Sudoku'},
-                    {name: 'Reading'},
-                    {name: 'Cooking'},
-                    {name: 'Chess'},
-                ]}
-            ],
-            active: [],
-            selected_sub_clubs: []
-            
-        }
-    },
-    methods:{
-        makeActive(category){
-            const index = this.active.indexOf(category)
-            if (index >= 0)
-                this.active.splice(index,1)
-            else
-                this.active.push(category)
-        },
-        removeSubClub(sub_club){
-            const index = this.selected_sub_clubs.indexOf(sub_club)
-            if (index >= 0)
-                this.selected_sub_clubs.splice(index,1)
-        }
-        
-    }
 }
 </script>
 
@@ -121,7 +69,7 @@ export default {
             outline: none;
             transition: 0.4s;
             text-decoration: none;
-            font-size: 1.5em;
+            font-size: 1.1em;
             border-radius: 10px;
             font-weight:500;   
         }
@@ -131,14 +79,14 @@ export default {
             font-weight: bold;
             float: right;
             margin-left: 5px;
-            font-size: 1.5em;
+            font-size: 1.1em;
             margin-left: auto;
             font-weight:700; 
         }
         
         .active:after {
             content: "\2212";
-            font-size: 1.5em;
+            font-size: 1.1em;
             font-weight:500; 
         }
 
@@ -168,7 +116,7 @@ export default {
         justify-content: center;
 
         .sub-club-name {      
-            font-size: 1.4em;
+            font-size: 1.2em;
             position:relative;
             display: flex;
             justify-content: center;
@@ -182,7 +130,7 @@ export default {
     }
 
     label {
-    border: 1px solid #fff;
+    border: 1px solid #fafafa;
     margin: 10px;
     padding: 10px;
     display: block;
@@ -215,8 +163,8 @@ export default {
     }
 
     label img {
-    height: 6em;
-    width: 6em;
+    height: 5em;
+    width: 5em;
     transition-duration: 0.2s;
     transform-origin: 50% 50%;
     border-radius: 10px;
@@ -249,13 +197,13 @@ export default {
     }
     .selected_sub_clubs{
         margin-top: 40px;
-        margin-left: 30px;
-        font-size: 1.8em;
+        margin-left: 3%;
+        font-size: 1.5em;
         color:var(--primary-color);
     }
     .remove_sc{
         margin-left: 5px;
-        font-size: 1.4em;
+        font-size: 1.1em;
     }
     .next_button{
         margin-top: 15px;
@@ -267,15 +215,15 @@ export default {
         background-color: var(--primary-color);
         color: white;
         cursor: pointer;
-        padding: 12px;
+        padding: 10px;
         width: 100px;
-        height:60px;
+        height:50px;
         border: .1px solid white;
         text-align: center;
         outline: none;
         transition: 0.4s;
         text-decoration: none;
-        font-size: 1.5em;
+        font-size: 1.2em;
         border-radius: 10px;
         font-weight: 500;
     }
