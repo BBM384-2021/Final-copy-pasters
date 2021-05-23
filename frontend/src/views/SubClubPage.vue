@@ -12,9 +12,18 @@
                         
                     </div>
                 </div>
-                <div v-if="this.show" class="big-box-member">  
+                <div v-if="!this.show" class="big-box-member">  
                     <div class="timeline-members-chatroom-event-ratereview">
-                     
+                      <!--  <div class="buttons">
+                        <ul>
+                            <li><a href="#" id="timeline" >Timeline</a></li>
+                            <li><a href="#" id="members" >Members</a></li>
+                            <li><a href="#" id="chatroom">Chat Room</a></li>
+                            <li><a href="#" id="events">Events</a></li>
+                            <li><a href="#" id="ratereview">Rate&#38;Review</a></li>
+                        </ul>
+                        </div>
+                        <div class="content"></div> -->
                     </div>
                 </div>
 
@@ -35,9 +44,11 @@
                     <div class="join-subclub">
                         <p id="join">Would you like to join this sub-club</p>
                         <button class="apply">Apply the questionnaire</button>
+                       
                     </div>
+                   
                 </div> 
-
+                
             </div>
         </div>   
     </header-helper>
@@ -45,13 +56,21 @@
 
 
 <script>
-import header from '../components/SubClubPageHeader.vue'
+import header from '../components/SubClubPageHeader.vue';
+
+
 export default{
     components:{
         'header-helper':header,
     },
+    computed:{
+        userFromVuex: this.$store.getters.user,
+    },
+
+    
     data(){
         return{
+           
             user:{ 
                 id:1,
                 username:"bandit",
@@ -171,9 +190,25 @@ img{
 .big-box-member{
     grid-row: 2/3;
     grid-column: 1/2;
+    display: grid;
+   
+    grid-template-rows: 20% 40% 1fr;
+    grid-template-columns: 1fr 70% 1fr;
+    grid-template-areas: ". . ."
+                    ". timelineMembersChatRoomEventsRateReview ."
+                    ". . .";
+                        
+
 }
 
-
+.timeline-members-chatroom-event-ratereview{
+    grid-area: timelineMembersChatRoomEventsRateReview;
+    
+    border-radius: 2em;
+    border: 0.2em solid rgb(245, 219, 227);
+    justify-self: center;
+   
+}
 
 .about{
     grid-area: about;
@@ -327,6 +362,18 @@ p#join{
     left: -1%;
   
 }  
+
+
+
+
+ul li{
+    
+    
+    display: inline;
+    margin-right:1em;
+    margin-top:-1.5em;
+ 
+}
 
 
 @media all and (max-width: 768px){
