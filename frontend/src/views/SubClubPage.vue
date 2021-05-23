@@ -1,33 +1,21 @@
 <template>
-    <header-helper>
-        <div slot="subclub-page">    
-            <div class="main">
-                <div class="image-header">
-                    <img class="subclub-image" :src="subclub.img">
-                    <div class="subclub-name">
-                        <h1>{{subclub.name}}</h1>
-                      
-                        <img class="star-img" src="~@/assets/star.png">
-                        <p id="main-rate">{{subclub.rate}}</p>
-                        
-                    </div>
+<header-helper>
+</header-helper>
+    <div>
+    <div class="main">
+        <div class="image-header">
+            <img class="subclub-image" :src="subclub.img">
+            <div class="subclub-name">
+                <h1>{{subclub.name}}</h1>     
+                <img class="star-img" src="~@/assets/star.png">
+                <p id="main-rate">{{subclub.rate}}</p>    
+            </div>
+            <div v-if="show" class="big-box-member">
+                <div class="timeline-members-chatroom-event-ratereview">
+                
                 </div>
-                <div v-if="!this.show" class="big-box-member">  
-                    <div class="timeline-members-chatroom-event-ratereview">
-                      <!--  <div class="buttons">
-                        <ul>
-                            <li><a href="#" id="timeline" >Timeline</a></li>
-                            <li><a href="#" id="members" >Members</a></li>
-                            <li><a href="#" id="chatroom">Chat Room</a></li>
-                            <li><a href="#" id="events">Events</a></li>
-                            <li><a href="#" id="ratereview">Rate&#38;Review</a></li>
-                        </ul>
-                        </div>
-                        <div class="content"></div> -->
-                    </div>
-                </div>
-
-                <div v-else class="big-box-not-member">
+            </div>
+             <div v-else class="big-box-not-member">
                     <div class="about">
                         <p id="about">About</p>
                         <div class="about-text"><p id="subclub-about">{{subclub.about}}</p></div>
@@ -41,36 +29,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="join-subclub">
+                 <!--   <div class="join-subclub">
                         <p id="join">Would you like to join this sub-club</p>
                         <button class="apply">Apply the questionnaire</button>
-                       
-                    </div>
+                        <p>{{user.id}}</p>
+                    </div>  -->
                    
                 </div> 
-                
-            </div>
-        </div>   
-    </header-helper>
+
+        </div>
+    </div>
+    </div>
 </template>
 
-
 <script>
-import header from '../components/SubClubPageHeader.vue';
-
-
+import header from '../components/SubClubPageHeader.vue'
 export default{
     components:{
         'header-helper':header,
     },
-    computed:{
-        userFromVuex: this.$store.getters.user,
-    },
-
-    
     data(){
         return{
-           
             user:{ 
                 id:1,
                 username:"bandit",
@@ -125,18 +104,23 @@ export default{
                         review: "very good",
                         },
                     ]
-            },
-
-            show: function() {
-                return this.user.subclubs.includes(this.subclub);
-            },
-      }
+            },       
+        }
     },
+    computed:{
+        show(){
+            let isMember = this.user.subclubs.includes(this.subclub)
+            if (isMember) return true
+            return false
+        }
+    },
+    
 }
 
 </script>
 
 <style scoped lang="scss">
+
 .main{
     display: grid;
     grid-template-rows: 10rem 1fr;
@@ -145,6 +129,7 @@ export default{
 }
 
 .image-header{
+    margin-top: 0.3%;
     grid-area: imageHeader;
     position: relative;
     grid-row: 1/2;
@@ -154,7 +139,7 @@ export default{
 
 p#main-rate{
     position: relative;
-    top: -1.5em;
+    top: -2.5em;
     left: 1.5%;
     font-size: 150%;
 }
@@ -243,7 +228,7 @@ p#subclub-about{
     font-size:150%;
     background-color:white;
     color:black;
-    width: 98%;
+    width: 90%;
     height: 60%;
     border-radius: 0.7rem;
     padding: 1%;
