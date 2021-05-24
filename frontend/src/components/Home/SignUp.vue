@@ -7,16 +7,19 @@
     <body>
       <main>
         <div class="big-box">
-            <a href="#" class="logo">Interest Club</a>
-          <form class="sign-up" action="#">
-            <input type="name" class="name" placeholder="Full Name" />
-            <input type="email" class="email" placeholder="Email" />
-            <input type="password" class="password" placeholder="Password"/>
+          <div class="logo">
+            <a href="#" class="logo">Logo</a>
+          </div>
+          <form @submit.prevent="submitForm" class="sign-up" action="#">
+            <input type="name" v-model="user.name" class="name" placeholder="Full Name" required/>
+            <input type="email" v-model="user.email" class="email" placeholder="Email" required/>
+            <input type="password" v-model="user.password" class="password" placeholder="Password" required/>
             <button class="sign-up">Sign Up</button>
             <hr class="hr-text" data-content="Or">
-            <button class="facebook" ><img src="~@/assets/fb.jpeg" width="20" height="20" style="float:left">Continue with Facebook</button>
-            <button class="google"><img src="~@/assets/google.jpeg" width="20" height="20" style="float:left;margin-right:0.5em">Continue with Google</button>
-            <a class="forgot_password" href="#">Forgot password?</a>
+            <button class="facebook" ><img src="~@/assets/fb.jpg" width="20" height="20" style="float:left">Continue with Facebook</button> <!--src linkini değiştir-->
+            <button class="google"><img src="~@/assets/google.jpg" width="20" height="20" style="float:left;margin-right:0.5em">Continue with Google</button> <!--src linkini değiştir-->
+            <a href="#">Forgot password?</a>
+           
           </form>
         </div>
         <div class="small-box">
@@ -28,16 +31,44 @@
 </template>
 
 <script>
-  
-  export default {
+import axios from 'axios';
+
+export default {
   name: "SignUp",
   methods: {
     goToSignIn(){
       this.$router.push({path: "/sign_in"});
+    },
+    async submitForm(e){
+      e.preventDefault();
+      const res = await axios.post('User/register', {
+        title: "title",
+        firstName: this.user.name,
+        lastName: this.user.name,
+        email: this.user.email,
+        password: this.user.password,
+        confirmPassword: this.user.password,
+        acceptTerms: true
+      }).then((response) => {
+        console.log(response)
+      }).catch((error) => {
+        console.log(error)
+      });
+      this.$router.push({path: "/sign_in"});
     }
-  }
+  },
+  data(){
+    return{
+      user:[{
+        name:'',
+        email:'',
+        password: '',
+      }]
+    }
+  },
+  
     
-  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -47,21 +78,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Alegreya Sans', sans-serif;
-  }
-  .logo{
-    text-decoration: none;
-    font-weight: 800;
-    color: #742957;
-    font-size: 1.8em;
-    margin:1em;
-    display: flex;
-    justify-content: center;
   }
   .big-box{
     background: #f5e7f3;
-    margin:5%;
+    margin-top:5%;
+    margin-bottom: 5%;
     border-radius: 2em;
+    margin-right: 5%;
+    margin-left: 5%;
     border: 0.2em solid rgb(245, 219, 227);
   }
   .small-box{
@@ -72,11 +96,10 @@
     margin-right: 5%;
     margin-left: 5%;
     border: 0.2em solid rgb(245, 219, 227);
-    display:flex;
-    justify-content: center;
-    align-items: center;
     p{
+      font-family: Alegreya Sans;
       text-align: center;
+      margin-top: 3%;
       color: black;
       font-size: 125%;
       
@@ -102,7 +125,24 @@
     grid-area: big-box;
     
   }
-
+  .logo{
+    padding-top: 15%;
+    margin-left: 26%;
+  }
+  .logo a{
+    
+    text-decoration: none;
+    color:black;
+    font-family: Alegreya Sans;
+    font-size: 130%;
+  }
+  a{
+    color:#222;
+    text-decoration: none;
+    margin-top: 5%;
+    font-size: 1.5rem;
+    font-family: Alegreya Sans;
+  }
   form{
     position:relative;
     top: 0;
@@ -121,6 +161,7 @@
       width: 60%;
       margin: 1%;
       overflow: hidden;
+      font-family: Alegreya Sans;
       &:focus{
         outline: none;
         
@@ -139,9 +180,10 @@
     height: 1.5em;
     width: 50%;
     opacity: .5;
-
+    font-family: Alegreya Sans;
     &:before {
       content: '';
+
       background: black;
       position: absolute;
       left: 0;
@@ -154,6 +196,7 @@
       position: relative;
       display: inline-block;
       color: black;
+
       padding: 0 .5em;
       line-height: 1.5em;
       color: #252525;
@@ -214,17 +257,14 @@
     padding: 2% 3%;
     margin-top: 3%;
     letter-spacing: 0.1em;
+    font-family: Alegreya Sans;
     &:active{
       transform: scale(.9);
     }
+
     &:focus{
       outline: none;
     }
-  }
-  .forgot_password{
-      text-decoration: none;
-      color:black;
-      margin-top: 1em;
   }
   @media screen and (max-width:1000px){
     button.google, button.facebook{ 
