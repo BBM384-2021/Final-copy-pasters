@@ -9,7 +9,7 @@ import JoinMoreSubClubs from '../views/JoinMoreSubClubs.vue'
 import EntryPage from '../views/EntryPage.vue'
 import SubClubPage from "../views/SubClubPage.vue"
 import SupportPage from '../views/SupportPage.vue'
-
+import SupportInfo from '../components/Support/SupportInfo.vue'
 
 const routes = [
   {
@@ -61,6 +61,11 @@ const routes = [
     path: '/support_page',
     name: 'SupportPage',
     component: SupportPage
+  },
+  {
+    path: '/support_info',
+    name: 'SupportInfo',
+    component: SupportInfo
   },
   
 ]
