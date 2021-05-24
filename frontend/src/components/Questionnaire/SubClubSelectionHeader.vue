@@ -35,7 +35,7 @@ body {
     background: white;
     margin: 0;
     font-family: 'Alegreya Sans', sans-serif;
-    
+}
 
     .container{
         width: 100%;
@@ -104,7 +104,7 @@ body {
         height: .5em;
         width:100%;
     }
-}
+
 
 @media only screen and (min-width: 768px){
     .container .logo{
