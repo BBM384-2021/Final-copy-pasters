@@ -94,7 +94,7 @@
     },
        methods:{
             goToQuestionnaireResultPage(){
-                this.$router.push("/QuestionnaireResult");
+                this.$router.push("/questionnaire_result");
             }
     }
     

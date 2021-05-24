@@ -1,5 +1,5 @@
 <template>
-      <div class="page">
+      <div class="support_page">
       <h1 class=title>Support Page</h1>
       <div><SendRequest/></div>
       </div>
@@ -23,7 +23,7 @@ export default {
         --bolder-color: #742957;
     }
 
-    .page{
+    .support_page{
         padding:10%;
         padding-top:0;
         font-family: 'Alegreya Sans', sans-serif;
