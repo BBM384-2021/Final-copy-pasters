@@ -188,15 +188,14 @@
     }
     .logo{
       grid-area: logo;
-      justify-self: start;
       align-self: center;
       margin-left: 10%;
     }
     .logo a{
       text-decoration: none;
-      color:black;
-      font-family:Alegreya Sans;
-      font-size: 130%;
+      color:#742957;
+      font-size: 1.8em;
+      font-weight: 700;
     }
 
     /*.big-box{
@@ -215,3 +214,4 @@
     }
 
 </style>
+
