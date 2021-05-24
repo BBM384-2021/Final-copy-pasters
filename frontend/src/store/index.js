@@ -32,7 +32,98 @@ export default createStore({
     ],
     active: [],
     selected_sub_clubs: [],
-    new_sub_clubs: [{name: 'Electronic Music'},{name: 'Sculpture'}]
+    new_sub_clubs: [{name: 'Electronic Music'},{name: 'Sculpture'}],
+
+    //current user
+    user:{ 
+      id:1,
+      username:"bandit",
+      email:"basak945@gmail.com",
+      subclubs:[{ 
+          id:1,
+          name:"Yoga",
+          img: require("../assets/sub-clubs-images/Yoga.jpeg"),
+          rate: 3.2,
+          about:"This is about yoga subclub"
+        },
+      {
+          id:2,
+          name: "Piano",
+          img:require("../assets/sub-clubs-images/Piano.jpeg"),
+          rate:4.0,
+          about:"This is about piano subclub"
+      }]
+ 
+    },
+    
+    //all sub-clubs
+    subclubs:[{
+      id:0,
+      name:"Yoga",
+      img: require("../assets/sub-clubs-images/Yoga.jpg"),
+      rate: 3.2,
+      about:"This is about yoga subclub",
+      rates_reviews:[{
+              rate: 3,
+              review: "not bad",
+              },
+              {
+              rate: 5,
+              review: "very good",
+              },
+              {
+              rate: 5,
+              review: "very good",
+              },
+              {
+                rate: 5,
+                review: "very good",     
+                },
+                {
+                  rate: 5,
+                  review: "very good",     
+                  },]
+      },{
+      id:1,
+      name:"Piano",
+      img: require("../assets/sub-clubs-images/Piano.jpg"),
+      rate: 4,
+      about:"This is about Piano subclub",
+      rates_reviews:[{
+              rate: 3,
+              review: "not bad",
+              },
+              {
+              rate: 5,
+              review: "very good",
+              },
+          ]}, 
+      {
+        id:2,
+        name:"Novel",
+        img: require("../assets/sub-clubs-images/Novel.jpg"),
+        rate: 3.2,
+        about:"This is about novel subclub",
+        rates_reviews:[{
+                  rate: 3,
+                  review: "not bad",
+                  },
+                  {
+                  rate: 5,
+                  review: "very good",
+                  },
+                  {
+                  rate: 5,
+                  review: "very good",     
+                  },
+                  
+                
+                ]
+      },
+    ],
+    
+    
+ 
   },
   mutations: {
     makeActive(state, category){
@@ -54,7 +145,16 @@ export default createStore({
     }
   },
   actions: {
+   
   },
   modules: {
+  },
+  getters:{
+    getSubClubs(state){
+      return state.subclubs.filter(s => s.name)
+    }
   }
+
+
+
 })
