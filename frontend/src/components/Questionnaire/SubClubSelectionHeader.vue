@@ -111,7 +111,7 @@ body {
         font-size: 1.8em;
     }
     .start, .finish{
-        font-size: 1.6em;
+        font-size: 1.3em;
         font-weight: 500;
     }
 }
@@ -121,7 +121,7 @@ body {
         font-size: 2.1em;
     }
     .start, .finish{
-        font-size: 1.8em;
+        font-size: 1.5em;
         font-weight: 500;
     }
 }
