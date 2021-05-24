@@ -25,9 +25,9 @@
               <div class="dropdown-content">
                 <ul>
                   <li><p>Signed in as {{user.username}}</p></li> 
-                  <li><a href="#">Profile</a></li>
-                  <li><a href="#">Support</a></li>
-                  <li><a href="#">Log Out</a></li>  
+                  <li><button @click=" goToProfile()">Profile</button></li>
+                  <li><button @click=" goToSupport()">Support</button></li>
+                  <li><button @click=" goToHomePage()">Log Out</button></li>  
                 </ul>
               </div>
             </div>
@@ -57,7 +57,18 @@
             img:require("@/assets/sub-clubs-images/Piano.jpeg")}]
 	    	}
       }
-  },  
+    },
+    methods:{
+      goToProfile(){
+        this.$router.push("/profile_page");
+      },
+      goToSupport(){
+        this.$router.push("/support_page");
+      },
+      goToHomePage(){
+        this.$router.push("/");
+      }
+    }  
 }
 </script>
 
@@ -149,9 +160,12 @@
       display: flex;
       justify-content: center;
       
-      a{
+      button{ 
         text-decoration: none;
         color:#742957;
+        border:none;
+        background-color:#f9f9f9;
+        cursor: pointer;
       }
       p{
         padding-left:10px;
@@ -177,7 +191,6 @@
       
      
     }
-
     .chevron-down:hover .dropdown-content {
       display: flex;
       justify-content: center;
