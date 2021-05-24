@@ -3,6 +3,8 @@ import Home from '../views/Home.vue'
 import SignIn from "../components/Home/SignIn.vue";
 import SignUp from "../components/Home/SignUp.vue";
 import QueSelectClub from '../views/QueSelectClub.vue'
+import Questionnaire from '../views/Questionnaire.vue'
+import QuestionnaireResult from '../views/QuestionnaireResult.vue'
 import JoinMoreSubClubs from '../views/JoinMoreSubClubs.vue'
 import EntryPage from '../views/EntryPage.vue'
 import SubClubPage from "../views/SubClubPage.vue"
@@ -29,6 +31,16 @@ const routes = [
     path: '/sub_club_selection',
     name: 'QueSelectClub',
     component: QueSelectClub
+  },
+  {
+    path: '/questionnaire',
+    name: 'Questionnaire',
+    component: Questionnaire
+  },
+  {
+    path: '/questionnaire_result',
+    name: 'QuestionnaireResult',
+    component: QuestionnaireResult
   },
   {
     path: '/join_more_sub_clubs',
