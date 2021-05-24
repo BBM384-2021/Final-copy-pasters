@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="wrapper">
-                    <a href="#"><img class="more" src="~@/assets/background.jpeg"></a> 
+                    <router-link :to="'/join_more_sub_clubs/'"><img class="more" src="~@/assets/background.jpeg"></router-link> 
                     <div class="text">Join more <br>sub-clubs...<br></div>
                 </div>
             </form>
