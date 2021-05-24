@@ -17,7 +17,7 @@
             </div>
             <div class="icons">
               <button class="btn"><i class="fa fa-home" ></i></button>
-              <button class="btn"><i class="fa fa-comment"></i></button>
+              <button class="btn" @click=" goToChat()"><i class="fa fa-comment"></i></button>
               <button class="btn"><i class="fa fa-user"></i></button>
             </div>
             <div class="chevron-down">
@@ -67,6 +67,9 @@
       },
       goToHomePage(){
         this.$router.push("/");
+      },
+      goToChat(){
+        this.$router.push("/private_message");
       }
     }  
 }
