@@ -2,7 +2,7 @@
     <div>
     <questionnaire-header>    </questionnaire-header>
     <form class="questionnaire-result" action="#">
-        <h1 class="h1">Here are your result!</h1>
+        <h1 class="h1">Here are your results!</h1>
         <div class="grid-container">
             <h2 class="sub-club"> Sub-Club</h2>
             <h2 class="score"> Score</h2>
