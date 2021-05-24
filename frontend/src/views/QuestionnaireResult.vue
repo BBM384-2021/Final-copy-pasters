@@ -8,11 +8,9 @@
             <h2 class="score"> Score</h2>
             <h2 class="join-que"> Want to Join?</h2>
             <div class="sub-club-section " v-for="(subclub) in subclubs" :key="subclub.id">
-                    <div class="responsive">
                         <div class="gallery">
                             <img class="image" :src="require('@/assets/' + subclub.name + '_mini.jpeg')">
                             <div class="desc">{{subclub.name}}</div>
-                        </div>
                         </div>
                     <h3 v-if="subclub.score>50" class="score-result" style="color:#0cf12a ">{{subclub.score}}%</h3>
                     <h3 v-else class="score-result" style="color:red ">{{subclub.score}}%</h3>
@@ -102,7 +100,6 @@ export default {
 }
 .grid-container > div {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px 0;
     font-size: 30px;
     font-weight: bold;
     }
@@ -123,7 +120,7 @@ export default {
 .sub-club-section{
     display: grid;
     grid-template-columns: 33% 33% 33% ;
-    grid-gap: 20px;
+    grid-gap: 1%;
     grid-column-start: 1;
     grid-column-end:4;
 }
@@ -181,6 +178,7 @@ export default {
     grid-column-start: 3;
     grid-column-end:4;
     margin-top: 40px;
+    border-radius:10px;
     place-content: center;
 }
 .button {
@@ -294,7 +292,6 @@ export default {
  div.gallery img {
     width: 90px;
     height: 90px;
-    margin-left:220px;
     margin-top:20px;
     border-radius:10px ;
   }
@@ -304,7 +301,6 @@ export default {
     text-align: center;
     font-size:20px;
     font-weight: normal;
-    margin-left:225px;
     
   }
   
