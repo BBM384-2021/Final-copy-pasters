@@ -4,11 +4,12 @@
     <div>
     <div class="main">
         <div class="image-header">
-            <img class="subclub-image" :src="subclub.img">
+            <img class="subclub-image" :src="currentSubClub.img">
             <div class="subclub-name">
-                <h1>{{subclub.name}}</h1>     
+                <h1>{{currentSubClub.name}}</h1>     
                 <img class="star-img" src="~@/assets/star.png">
-                <p id="main-rate">{{subclub.rate}}</p>    
+                <p id="main-rate">{{currentSubClub.rate}}</p>    
+            </div>
             </div>
             <div v-if="show" class="big-box-member">
                 <div class="timeline-members-chatroom-event-ratereview">
@@ -18,12 +19,12 @@
              <div v-else class="big-box-not-member">
                     <div class="about">
                         <p id="about">About</p>
-                        <div class="about-text"><p id="subclub-about">{{subclub.about}}</p></div>
+                        <div class="about-text"><p id="subclub-about">{{currentSubClub.about}}</p></div>
                     </div>
                     <div class="rate-review">
                         <p id="rate-review">Ratings&#38;Reviews</p>
                         <div class="rate-review-outer">
-                            <div class="rates-review-text" v-for="rates_reviews in subclub.rates_reviews" :key="rates_reviews">
+                            <div class="rates-review-text" v-for="rates_reviews in currentSubClub.rates_reviews" :key="rates_reviews">
                                 <p id="rate">{{rates_reviews.rate}}</p>
                                 <div class="review-text"><p id="subclub-review">{{rates_reviews.review}}</p></div>
                             </div>
@@ -36,14 +37,12 @@
                     </div>  -->
                    
                 </div> 
-
-        </div>
     </div>
     </div>
 </template>
 
 <script>
-import header from '../components/SubClubPageHeader.vue'
+import header from '../components/SubClubPage/SubClubPageHeader.vue'
 export default{
     components:{
         'header-helper':header,
@@ -57,14 +56,14 @@ export default{
                 subclubs:[{ 
                     id:1,
 	    		    name:"Yoga",
-	    		    img: require("../assets/sub-clubs-images/Yoga.jpg"),
+	    		    img: require("@/assets/sub-clubs-images/Yoga.jpeg"),
                     rate: 3.2,
                     about:"This is about yoga subclub"
                 },
 	            {
                     id:2,
 	    		    name: "Piano",
-                    img:require("../assets/sub-clubs-images/Piano.jpg"),
+                    img:require("@/assets/sub-clubs-images/Piano.jpeg"),
                     rate:4.0,
                     about:"This is about piano subclub"
                 }]
@@ -72,7 +71,7 @@ export default{
             subclub:{
                 id:1,
 	    		name:"Yoga",
-	    		img: require("../assets/sub-clubs-images/Yoga.jpg"),
+	    		img: require("@/assets/sub-clubs-images/Yoga.jpeg"),
                 rate: 3.2,
                 about:"This is about yoga subclub",
                 rates_reviews:[{
@@ -112,7 +111,16 @@ export default{
             let isMember = this.user.subclubs.includes(this.subclub)
             if (isMember) return true
             return false
-        }
+        },
+        currentSubClub(){
+           for(let i = 0; i < this.$store.getters.getSubClubs.length; i++){
+                if(this.$store.getters.getSubClubs[i].name == this.$route.params.subclubname){
+                    return this.$store.getters.getSubClubs[i]
+                }
+            }
+            return this.$store.getters.getSubClubs[0] 
+            
+        } 
     },
     
 }
@@ -120,10 +128,12 @@ export default{
 </script>
 
 <style scoped lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap');
 
 .main{
     display: grid;
     grid-template-rows: 10rem 1fr;
+    font-family: 'Alegreya Sans', sans-serif;
    /* grid-template-areas:"imageHeader"
                         "bigBox";       */ 
 }
@@ -240,12 +250,13 @@ p#subclub-about{
     grid-template-rows: 1fr 10fr;
     grid-template-areas:"rateReviewTitle"
                         "rateReviewDiv";
+
 }
 
 .rate-review-outer{
     grid-area: rateReviewDiv;
     background-color: #f5e7f3;
-    height: 100%;
+    height: 150%;
     overflow: auto;
     border-radius: 1rem;
   /*  justify-items: start;
@@ -255,10 +266,10 @@ p#subclub-about{
     border-radius: 1rem;
     height: 30%;
     overflow: auto; */
+     margin-top: 5%;
 }
 
 .rates-review-text{
-    margin-bottom: 2%;
     margin-left: 5%;
 }
 
@@ -291,7 +302,6 @@ p#subclub-review{
     padding: 1%; */
     position: relative;
     top: 2em;
-    left: 1.5%;
 }
 
 p#rate-review{
@@ -362,9 +372,7 @@ ul li{
 
 
 @media all and (max-width: 768px){
-    h1{
-        //font-size: 100%;
-    }
+
     p#main-rate{
         font-size: 50%;
     }
