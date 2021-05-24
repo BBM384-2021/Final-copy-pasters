@@ -55,7 +55,7 @@ body {
     .logo{
         text-decoration: none;
         font-weight: bold;
-        color: var(--bolder-color);
+        color: #742957;
         font-size: 1.4em;
         justify-self: center;
         font-family: 'Alegreya Sans', sans-serif;
@@ -79,7 +79,7 @@ body {
 
     .progress-bar-front{
         content: '';
-        background: var(--primary-color);
+        background: #BA7EA0;
         margin:0;
         width: 34%;
         height: 1.4em;
@@ -100,7 +100,7 @@ body {
         grid-column-start: 3;
     }  
     .bottom_line{
-        background-color: var(--primary-color);
+        background-color: #BA7EA0;
         height: .5em;
         width:100%;
     }

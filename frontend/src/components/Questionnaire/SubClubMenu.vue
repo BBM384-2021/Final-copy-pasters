@@ -75,7 +75,7 @@ export default {
             font-weight:500;   
         }
     
-        .accordion:after {
+        .accordion::after {
             content: '\002B';
             font-weight: bold;
             float: right;
@@ -85,14 +85,14 @@ export default {
             font-weight:700; 
         }
         
-        .active:after {
+        .active::after {
             content: "\2212";
             font-size: 1.1em;
             font-weight:500; 
         }
 
         .vertical-menu .accordion.active {
-            background-color: var(--primary-color);
+            background-color: #BA7EA0;
             color: white;
         }
     }
@@ -200,7 +200,7 @@ export default {
         margin-top: 40px;
         margin-left: 3%;
         font-size: 1.5em;
-        color:var(--primary-color);
+        color:#BA7EA0;
     }
     .remove_sc{
         margin-left: 5px;
@@ -213,7 +213,7 @@ export default {
     }
     
     .next{
-        background-color: var(--primary-color);
+        background-color: #BA7EA0;
         color: white;
         cursor: pointer;
         padding: 10px;
