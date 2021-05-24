@@ -24,7 +24,7 @@
               <span class="chevron-down-btn" ><i class="fa fa-chevron-down"></i></span>
               <div class="dropdown-content">
                 <ul>
-                   <li><p>Signed in as {{user.username}}</p></li> 
+                  <li><p>Signed in as {{user.username}}</p></li> 
                   <li><a href="#">Profile</a></li>
                   <li><a href="#">Support</a></li>
                   <li><a href="#">Log Out</a></li>  
@@ -142,12 +142,21 @@
       cursor: pointer; 
       
     }
-    .dropdown-content ul {
-      text-align:center;
-    }
     .dropdown-content ul li {
-      
+      list-style-type: none;
       border-bottom: 0.1rem solid #a56a9d;
+      color: black;
+      display: flex;
+      justify-content: center;
+      
+      a{
+        text-decoration: none;
+        color:#742957;
+      }
+      p{
+        padding-left:10px;
+        
+      }
       
     }
     .dropdown-content {
@@ -158,15 +167,20 @@
       border-radius: 1em;
       border: 0.2em solid #a56a9d;
       margin-top: -1%;
+      ul{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        padding:1%;
+        align-self: center;
+      }
+      
      
     }
-    .dropdown-content ul li a{
-      color: black;
-      text-decoration: none;
-      justify-self: center;
-     }
+
     .chevron-down:hover .dropdown-content {
-      display: block;
+      display: flex;
+      justify-content: center;
     }
     .btn{
       background-color: transparent; 
@@ -177,15 +191,14 @@
     }
     .logo{
       grid-area: logo;
-      justify-self: start;
       align-self: center;
       margin-left: 10%;
     }
     .logo a{
       text-decoration: none;
-      color:black;
-      font-family:Alegreya Sans;
-      font-size: 130%;
+      color:#742957;
+      font-size: 1.8em;
+      font-weight: 700;
     }
     /*.big-box{
         background: white;
