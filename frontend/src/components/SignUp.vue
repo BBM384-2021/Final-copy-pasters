@@ -37,11 +37,11 @@ export default {
   name: "SignUp",
   methods: {
     goToSignIn(){
-      this.$router.push({path: "/SignIn"});
+      this.$router.push({path: "/sign_in"});
     },
     async submitForm(e){
       e.preventDefault();
-      const res = await axios.post('User/register', {
+      const res = await axios.post('http://localhost:4000/api/User/register', {
         title: "title",
         firstName: this.user.name,
         lastName: this.user.name,
@@ -50,14 +50,11 @@ export default {
         confirmPassword: this.user.password,
         acceptTerms: true
       }).then((response) => {
-        console.warn("what")
         console.log(response)
       }).catch((error) => {
-        console.warn("what")
         console.log(error)
       });
-      console.log("whatt");
-      this.$router.push('signIn');
+      this.$router.push('sign_in');
     }
   },
   data(){

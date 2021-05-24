@@ -1,4 +1,4 @@
-import Vue from "vue";
+/*import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import SignIn from "../components/SignIn.vue"
@@ -9,6 +9,8 @@ import QueSelectClub from '../views/QueSelectClub.vue'
 
 
 Vue.use(VueRouter);
+*/
+
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import SignIn from "../components/Home/SignIn.vue";
