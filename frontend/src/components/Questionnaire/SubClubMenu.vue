@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="next_button">
-        <button class="next">Next</button>
+        <button class="next" @click=" goToQuestionnairePage()">Next</button>
     </div>
 </form>
 
@@ -33,7 +33,11 @@
 
 <script>
 export default {
-
+    methods:{
+        goToQuestionnairePage(){
+            this.$router.push("/questionnaire");
+        }
+    }
 }
 </script>
 
