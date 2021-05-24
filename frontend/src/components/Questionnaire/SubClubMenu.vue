@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="next_button">
-        <button class="next">Next</button>
+        <button class="next" @click="submitForm()">Next</button>
     </div>
 </form>
 
@@ -33,7 +33,13 @@
 
 <script>
 export default {
+    name: "SubClubMenu",
+    methods: {
+    async submitForm(){
+        this.$router.push('/questionnaire');
+    },
 
+  }
 }
 </script>
 
