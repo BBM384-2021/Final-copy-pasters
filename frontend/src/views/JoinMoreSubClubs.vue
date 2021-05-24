@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="page">
       <h1 class=title>Join More Sub-Clubs</h1>
       <p>You can view the newly opened and the other sub-clubs below. 
@@ -7,12 +6,12 @@
       <div><NewSubClubsList/></div>
       <div><SubClubMenu/></div>
   </div>
-  </div>
+  
 </template>
 
 <script>
-import SubClubMenu from '@/components/SubClubMenu.vue'
-import NewSubClubsList from '@/components/NewSubClubsList.vue'
+import SubClubMenu from '@/components/Questionnaire/SubClubMenu.vue'
+import NewSubClubsList from '@/components/Questionnaire/NewSubClubsList.vue'
 export default {
     name: 'JoinMoreSubClubs',
     components: {

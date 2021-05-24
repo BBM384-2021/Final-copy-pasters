@@ -14,8 +14,8 @@
 
 <script>
 // @ is an alias to /src
-import SubClubMenu from '@/components/SubClubMenu.vue'
-import SubClubSelectionHeader from '@/components/SubClubSelectionHeader.vue'
+import SubClubMenu from '@/components/Questionnaire/SubClubMenu.vue'
+import SubClubSelectionHeader from '@/components/Questionnaire/SubClubSelectionHeader.vue'
 
 export default {
   name: 'QueSelectClub',
