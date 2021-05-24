@@ -4,11 +4,11 @@
     <div>
     <div class="main">
         <div class="image-header">
-            <img class="subclub-image" :src="subclub.img">
+            <img class="subclub-image" :src="currentSubClub.img">
             <div class="subclub-name">
-                <h1>{{subclub.name}}</h1>     
+                <h1>{{currentSubClub.name}}</h1>     
                 <img class="star-img" src="~@/assets/star.png">
-                <p id="main-rate">{{subclub.rate}}</p>    
+                <p id="main-rate">{{currentSubClub.rate}}</p>    
             </div>
             </div>
             <div v-if="show" class="big-box-member">
@@ -19,12 +19,12 @@
              <div v-else class="big-box-not-member">
                     <div class="about">
                         <p id="about">About</p>
-                        <div class="about-text"><p id="subclub-about">{{subclub.about}}</p></div>
+                        <div class="about-text"><p id="subclub-about">{{currentSubClub.about}}</p></div>
                     </div>
                     <div class="rate-review">
                         <p id="rate-review">Ratings&#38;Reviews</p>
                         <div class="rate-review-outer">
-                            <div class="rates-review-text" v-for="rates_reviews in subclub.rates_reviews" :key="rates_reviews">
+                            <div class="rates-review-text" v-for="rates_reviews in currentSubClub.rates_reviews" :key="rates_reviews">
                                 <p id="rate">{{rates_reviews.rate}}</p>
                                 <div class="review-text"><p id="subclub-review">{{rates_reviews.review}}</p></div>
                             </div>
@@ -111,7 +111,16 @@ export default{
             let isMember = this.user.subclubs.includes(this.subclub)
             if (isMember) return true
             return false
-        }
+        },
+        currentSubClub(){
+           for(let i = 0; i < this.$store.getters.getSubClubs.length; i++){
+                if(this.$store.getters.getSubClubs[i].name == this.$route.params.subclubname){
+                    return this.$store.getters.getSubClubs[i]
+                }
+            }
+            return this.$store.getters.getSubClubs[0] 
+            
+        } 
     },
     
 }
@@ -241,12 +250,13 @@ p#subclub-about{
     grid-template-rows: 1fr 10fr;
     grid-template-areas:"rateReviewTitle"
                         "rateReviewDiv";
+
 }
 
 .rate-review-outer{
     grid-area: rateReviewDiv;
     background-color: #f5e7f3;
-    height: 100%;
+    height: 150%;
     overflow: auto;
     border-radius: 1rem;
   /*  justify-items: start;
@@ -256,6 +266,7 @@ p#subclub-about{
     border-radius: 1rem;
     height: 30%;
     overflow: auto; */
+     margin-top: 5%;
 }
 
 .rates-review-text{
