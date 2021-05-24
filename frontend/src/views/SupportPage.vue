@@ -1,4 +1,5 @@
 <template>
+    <div><SubClubPageHeader/></div>
       <div class="support_page">
       <h1 class=title>Support Page</h1>
       <div><SendRequest/></div>
@@ -6,11 +7,13 @@
 </template>
 
 <script>
-import SendRequest from '@/components/Support/SendRequest.vue'
+import SendRequest from '@/components/Support/SendRequest.vue';
+import SubClubPageHeader from '@/components/SubClubPage/SubClubPageHeader.vue';
 export default {
     name: 'SupportPage',
     components:{
-        SendRequest
+        SendRequest,
+        SubClubPageHeader
     },
     
 }
