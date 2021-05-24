@@ -9,7 +9,7 @@
                 <div class="user-list" v-for="(conversation,index) in conversationsa" :key=index>
                     <div class="item" @click="activeIndex=index">
                         <div class="title">
-                            <img class="image" :src="require('@/assets/users-profile-photos/' + conversation.user + '.jpg')">
+                            <img class="image" :src="require('@/assets/profile-photos/' + conversation.user + '.jpg')">
                             <p class="title-text"> {{conversation.user}}</p>
                         </div>
                       
@@ -20,7 +20,7 @@
             <div class="message-container column">
                 <div class="user">
                     <div class="profile-image">
-                    <img class="image" :src="require('@/assets/users-profile-photos/' + conversationsa[activeIndex].user + '.jpg')">
+                    <img class="image" :src="require('@/assets/profile-photos/' + conversationsa[activeIndex].user + '.jpg')">
                     </div>
                     <span>{{conversationsa[activeIndex].user}}</span>
                 </div>
