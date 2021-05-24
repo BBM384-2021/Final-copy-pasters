@@ -14,8 +14,8 @@
 
 <script>
 // @ is an alias to /src
-import SubClubMenu from '@/components/SubClubMenu.vue'
-import SubClubSelectionHeader from '@/components/SubClubSelectionHeader.vue'
+import SubClubMenu from '@/components/Questionnaire/SubClubMenu.vue'
+import SubClubSelectionHeader from '@/components/Questionnaire/SubClubSelectionHeader.vue'
 
 export default {
   name: 'QueSelectClub',
@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap');
     :root{
     --primary-color: #BA7EA0;

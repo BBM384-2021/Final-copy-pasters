@@ -1,6 +1,7 @@
 <template>
     <header-helper>
-        <div slot="my-subclubs">
+    </header-helper>
+            <div class="my-subclubs">
             <div class="main">
                 <h2>My Sub-Clubs</h2>
             <form class="subclub-form" action="#">
@@ -17,11 +18,10 @@
             </form>
             </div>
         </div>
-    </header-helper>
 </template>
 
 <script>
-import header from '../components/SubClubPageHeader.vue'
+import header from '../components/SubClubPage/SubClubPageHeader.vue'
 export default{
     components:{
         'header-helper':header,
@@ -35,12 +35,12 @@ export default{
             subclubs:[{ 
                     id:1,
 	    		    name:"Yoga",
-	    		    img: require("../assets/yoga.jpg")
+	    		    img: require("../assets/sub-clubs-images/Yoga.jpeg")
             },
 	        {
                     id:2,
-	    		    name: "Football",
-                    img:require("../assets/football.jpg")}]
+	    		    name: "Piano",
+                    img:require("../assets/sub-clubs-images/Piano.jpeg")}]
 	    }
       }
     }
@@ -49,14 +49,12 @@ export default{
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital@1&display=swap');
-
 .main{
     display: grid;
     grid-template-rows: 1fr 10fr;
     grid-template-areas:"title"
                         "subclubs";        
 }
-
 h2{
     grid-area: title;
     align-self: center;
@@ -66,12 +64,10 @@ h2{
     font-family: 'Alegreya Sans', sans-serif;
     font-weight: 500;
 }
-
 .subclub-form{
     grid-area: subclubs;
     overflow-y:auto;
 }
-
 .text{
     position: absolute;
     top: 55%;
@@ -84,8 +80,6 @@ h2{
     font-family: 'Alegreya Sans', sans-serif;
     -webkit-text-stroke: 1px black; /* width and color */
 }
-
-
 .subclub{
     position: relative;
     
@@ -107,33 +101,25 @@ img{
         margin-top: 2.5%;
     }
 }
-
 .wrapper{
     position: relative;
 }
-
 slot[name=my-subclubs]{
     overflow: auto;
 } 
-
-
 @media all and (max-width: 425px){
     img{
         height: 5em;
     }
 }
-
 @media all and (max-width: 768px){
     .text{
          font-size: 200%;
     }
 }
-
 @media all and (max-width: 425px){
     .text{
          font-size: 100%;
     }
 }
-
-
 </style>
