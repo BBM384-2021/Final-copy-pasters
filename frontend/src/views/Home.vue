@@ -1,45 +1,32 @@
 <template>
- <article>
-   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-   </head>
-   <body>
-    <main>
-      <div class="header">
-        <div class="logo">
-          <a href="#" class="logo">Logo</a>
-        </div>
-        <ul>
-          <li><a href="#" class="SignUp" @click="goToSignUp()">Sign Up</a></li>
-          <li><a href="#" class="LogIn" @click="goToSignIn()">Log In</a></li>
-          <li><a href="#" class="About">About</a></li>
-        </ul>
+    <div class="page">
+      <div class="container">
+            <a href="#" class="logo">Interest Club</a>
+            <a href="#" class="About">About</a>
+            <a href="#" class="LogIn" @click="goToSignIn()">Sign In</a>
+            <a href="#" class="SignUp" @click="goToSignUp()">Sign Up</a>
       </div>
-      <div class="center">
-        <h1>Union of Interests</h1>
-        <h2>The best platform to find people<br>with the same interests as you.<br></h2>
+      <div class="main">
+        <div class="center">
+          <h1>Union of Interests</h1>
+          <h2>The best platform to find people<br>with the same interests as you.<br></h2>
+        </div>
       </div>
       
-    </main>
-   </body>
-  </article>
+      
+    </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
-
 export default {
   name: "Home",
   methods: {
     goToSignIn(){
-      this.$router.push({path: "/SignIn"});
+      this.$router.push({path: "/sign_in"});
     },
-
     goToSignUp(){
-      this.$router.push({path: "/SignUp"});
+      this.$router.push({path: "/sign_up"});
     }
   },
   components: {
@@ -49,114 +36,109 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,900;1,900&display=swap');
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap');
+  :root{
+      --primary-color: #BA7EA0;
+      --bolder-color: #742957;
   }
-  body,html{
+  .page{
     background-image: url("~@/assets/background.jpeg");
-    height: 100%;
     background-size: 100% 100%;
-}
-  .header{
-    height: 30%;
-    grid-area:header;
-    background: rgba($color: white, $alpha: 0.5);
-    border-bottom: 0.2em solid palevioletred;
+  }
+  .container{
+    width: 100%;
+    max-height: 90px;
+    margin: 0;
+    padding: 1.2em;
+    display:grid;
+    grid-template-columns: 30% auto 15% 10% 10%;
+    grid-template-rows: 2em;
+    column-gap: 2%;
+    font-family: 'Alegreya Sans', sans-serif;
+    align-items: center;
+    background: rgba($color: white, $alpha: 0.7);
     
   }
   .logo{
-    margin-left: 1%;
-    margin-top: 1%;
-    margin-left: 1%;
-  }
-  .logo a{
     text-decoration: none;
-    color:black;
-    font-family: Alegreya Sans;
-    font-size: 130%;
-   
+    font-weight: 800;
+    color: #742957;
+    font-size: 2em;
+    justify-self: center;
   }
 
+  a{
+    color:#742957;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 700;
+  }
+  
+  .About{
+    color:rgb(51, 50, 51);
+    grid-column: 3;
+    justify-self: end;
+    padding-right: 1em;
+  }
+  .LogIn {
+    background: white;
+    border-radius: 1em;
+    padding:0.2em 1em;
+    grid-column: 4;
+    justify-self: center;
+
+  }
+  .SignUp {
+    background: #742957;
+    color: white;
+    border-radius: 1em;
+    padding:0.2em 1em;
+    grid-column: 5;
+    justify-self: start;
+
+  }
+  .SignUp:hover{
+    background: plum;
+    border-radius: 1em;
+    
+  }
+  .LogIn:hover{
+    background: plum;
+    border-radius: 1em;
+    
+  }
+  .main{
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows:1fr 2fr 2fr ;
+  }
+  .center{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    
+  }
   .center{
     background: rgba($color: #ffffff, $alpha: 0.8);
     border-radius: 5em;
     border:0.2em solid black;
+    font-family: 'Alegreya Sans', sans-serif;
     text-align: center;
-
+    
     h1{
-      font-size: 500%;
-      margin-top:0.7em;
+      font-size: 5em;
+      margin:0;
+      padding:.6em .5em;
+      padding-bottom: .3em;
     }
+
     h2{
-      margin-top:0.5em;
-      margin-bottom: 1em;
-      font-size: 200%;
+      font-size: 2em;
+      margin:0;
+      padding:1.2em .5em;
+      padding-top: 0;
     }
-  }
-  .header ul{
- /*  float: right;
-    margin-right: 2%;
-    margin-top: 0.5%;*/
-    margin-top:.5%;
-  }
-  .header ul li{
-    list-style: none;
-    float: right;
-    display: inline-block;
-    margin-right:1em;
-    margin-top:-1.5em;
-    
-  }
-  .header ul li a{
-    color:rgb(95, 3, 138);
-    text-decoration: none;
-    font-family: Alegreya Sans;
-    font-size: 130%;  
-  }
   
-  .header ul li .About{
-    color:rgb(51, 50, 51);
-  }
-  .header ul li .LogIn {
-    background: white;
-    border-radius: 1em;
-    padding:0.2em 1em 0.2em 1em;
-  }
-  .header ul li .SignUp {
-    background: white;
-    border-radius: 1em;
-    padding:0.2em 1em 0.2em 1em;
-  }
-  .header ul li .SignUp:hover{
-    background: plum;
-    border-radius: 1em;
-    
-  }
-  .header ul li .LogIn:hover{
-    background: plum;
-    border-radius: 1em;
-    
-  }
-
-  .header ul li .About:hover{
-    text-decoration-line: underline;
-  }
-
-  main{
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 3rf 1fr;
-    grid-template-rows:1fr 1fr 1fr ;
-    grid-template-areas:"header header header"
-    ". center ." ;
-  }
-
-  .center{
-    grid-area:center;
-    
   }
   @media screen and (max-width:800px){
     .center {
@@ -168,5 +150,22 @@ export default {
       }
     }
   }
+  @media only screen and (min-width: 768px){
+    .container .logo{
+        font-size: 1.8em;
+    }
+    a{
+        font-size: 1.2em;
+        font-weight: 500;
+    }
+}
 
+@media only screen and (min-width: 1024px){
+    .container .logo{
+        font-size: 2.2em;
+    }
+    a{
+        font-size: 1.4em;
+    }
+}
 </style>
