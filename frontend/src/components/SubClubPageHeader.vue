@@ -9,7 +9,7 @@
       <main>
         <div class="header">
             <div class="logo">
-                <a href="#" class="logo">Logo</a>
+                <a href="#" class="logo">Interest Club</a>
             </div>
             <div class="search">
               <button type="submit"><i class="fa fa-search"></i></button>
@@ -32,8 +32,7 @@
               </div>
             </div>
         </div>
-          <slot name="my-subclubs"></slot>      
-          <slot name="subclub-page"></slot>    
+  
       </main> 
     </body>
   </article>
@@ -50,12 +49,12 @@
           subclubs:[{ 
             id:1,
 	    		  name:"Yoga",
-	    		  img: require("../assets/yoga.jpg")
+	    		  img: require("@/assets/sub-clubs-images/Yoga.jpeg")
 	    	  },
 	        {
             id:2,
-	    		  name: "Football",
-            img:require("../assets/football.jpg")}]
+	    		  name: "Piano",
+            img:require("@/assets/sub-clubs-images/Piano.jpeg")}]
 	    	}
       }
   },  
@@ -68,23 +67,20 @@
     * {
       font-family:'Alegreya Sans', sans-serif;
     }
-
     .header {
       grid-area: header;
       display: grid; 
       grid-template-columns: 30fr 30fr 30fr 3fr;
       grid-template-areas: "logo search icons chevron-down";
     }
-
     main{
-        height: 100vh;
+        height: 50px;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 10fr;
         grid-template-areas:"header"
         "." ;
     }
-
     .header{
         background: white;
         border-bottom:0.3em solid #a56a9d;
@@ -101,7 +97,6 @@
     /*.subclub-list{
       grid-area: subclublist;
     } */
-
     .search{
       display: grid;
       grid-area: search;
@@ -121,7 +116,6 @@
         padding-left: 4%;
         color: #000;
       }
-
       button[type="submit"]{
         color: #a56a9d;
         height: 170%;
@@ -136,8 +130,9 @@
     .chevron-down{
       grid-area: chevron-down;
       justify-self: start;
-      align-self: end;
+      align-self: center;
       margin-bottom: 30%;
+      z-index:1000;
     }
     .chevron-down-btn{
       background-color: transparent; 
@@ -147,32 +142,32 @@
       cursor: pointer; 
       
     }
-    .dropdown-content ul li {
-      display: block;
-      border-bottom: 0.1rem solid #a56a9d;
-      padding: 4%;
+    .dropdown-content ul {
+      text-align:center;
     }
-
+    .dropdown-content ul li {
+      
+      border-bottom: 0.1rem solid #a56a9d;
+      
+    }
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: #f9f9f9;
-      margin-left: -2%;
+      margin-left: -5%;
       border-radius: 1em;
       border: 0.2em solid #a56a9d;
       margin-top: -1%;
+     
     }
-
     .dropdown-content ul li a{
       color: black;
       text-decoration: none;
+      justify-self: center;
      }
-
-
     .chevron-down:hover .dropdown-content {
       display: block;
     }
-
     .btn{
       background-color: transparent; 
       border: none; 
@@ -180,8 +175,6 @@
       font-size: 250%;
       cursor: pointer; 
     }
-
-
     .logo{
       grid-area: logo;
       justify-self: start;
@@ -194,20 +187,13 @@
       font-family:Alegreya Sans;
       font-size: 130%;
     }
-
     /*.big-box{
         background: white;
     } */
-
-
     @media screen and (max-width:700px){
-
       .search{
         max-width: 100%;
         overflow: hidden;
       }
-
-
     }
-
 </style>
