@@ -107,14 +107,12 @@
         padding: 5px;
         
     }
-
     .conversation-list-container{
         width: 40% ;
         background: white;
         border : 1px solid #a56a9d;
         padding:5px
     }
-
     .message-container{
         width: 60% ;
         background: #f0f0f0;
@@ -131,7 +129,6 @@
         border-bottom: 1px solid rgb(200, 200, 200);
         display: flex;
         flex-direction: row;
-
     }
     .user span{
         margin-top: 10px;
@@ -159,19 +156,15 @@
     .subtitle{
         color:gray;
     }
-
-
     .item:hover{
         background:#f0f0f0;
         cursor: pointer;
     }
-
     .title-text{
         margin-left: 10px;
         font-size: 20px;
         font-weight:bold;
     }
-
     .subtitle-text{
         font-size: 15px;
         color: gray;
@@ -188,7 +181,6 @@
        // justify-content: flex-end;
         flex-direction: column;
     }
-
     .write-message{
         height: 37px;
         bottom:35px;
@@ -197,7 +189,6 @@
         background: #a56a9d;
         
     
-
     }
     .write-message input{
         border:none;
@@ -207,7 +198,6 @@
         font-size: 15px;
         font-family: 'Alegreya Sans', sans-serif;
     }
-
    
     .image{
         margin-top: 10px;

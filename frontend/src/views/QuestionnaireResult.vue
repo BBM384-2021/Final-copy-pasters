@@ -18,7 +18,7 @@
                         <input class="join-btn option-input " type="checkbox" v-bind:value="subclub.name"  v-model="selected_subclubs" >
                     </div>
             </div>
-        <button @click=" goToHomePage()" class="button "><span> JOIN </span></button>
+        <button @click="()=>$router.push('/')" class="button "><span> JOIN </span></button>
       
         </div>
     </form>
@@ -71,12 +71,6 @@ export default {
             ]
         }
     },
-    methods:{
-            goToHomePage(){
-                this.$router.push("/");
-            },
-           
-    }
 }
 </script>
 <style scoped lang="scss">

@@ -17,7 +17,7 @@
             </div>
             <div class=" button_container">  
                 <div class="btn-holder">
-                    <button @click=" goToQuestionnaireResultPage()" class="submit_button"><span> SUBMIT </span></button>
+                    <button @click="()=>$router.push('/questionnaire_result')" class="submit_button"><span> SUBMIT </span></button>
                 </div>
             </div>
             
@@ -92,11 +92,6 @@
 	          ]
         }
     },
-       methods:{
-            goToQuestionnaireResultPage(){
-                this.$router.push("/questionnaire_result");
-            }
-    }
     
     }
     
