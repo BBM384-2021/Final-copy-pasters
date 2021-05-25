@@ -60,7 +60,7 @@ export default createStore({
     subclubs:[{
       id:0,
       name:"Yoga",
-      img: require("../assets/sub-clubs-images/Yoga.jpg"),
+      img: require("../assets/sub-clubs-images/Yoga.jpeg"),
       rate: 3.2,
       about:"This is about yoga subclub",
       rates_reviews:[{
@@ -86,7 +86,7 @@ export default createStore({
       },{
       id:1,
       name:"Piano",
-      img: require("../assets/sub-clubs-images/Piano.jpg"),
+      img: require("../assets/sub-clubs-images/Piano.jpeg"),
       rate: 4,
       about:"This is about Piano subclub",
       rates_reviews:[{
@@ -98,28 +98,6 @@ export default createStore({
               review: "very good",
               },
           ]}, 
-      {
-        id:2,
-        name:"Novel",
-        img: require("../assets/sub-clubs-images/Novel.jpg"),
-        rate: 3.2,
-        about:"This is about novel subclub",
-        rates_reviews:[{
-                  rate: 3,
-                  review: "not bad",
-                  },
-                  {
-                  rate: 5,
-                  review: "very good",
-                  },
-                  {
-                  rate: 5,
-                  review: "very good",     
-                  },
-                  
-                
-                ]
-      },
     ],
     
     
