@@ -1,6 +1,5 @@
 <template>
-    <header-helper>
-    </header-helper>
+            <div><SubClubPageHeader/></div>
             <div class="my-subclubs">
             <div class="main">
                 <h2>My Sub-Clubs</h2>
@@ -12,7 +11,7 @@
                     </div>
                 </div>
                 <div class="wrapper">
-                    <a href="#"><img class="more" src="~@/assets/background.jpeg"></a> 
+                    <router-link :to="'/join_more_sub_clubs/'"><img class="more" src="~@/assets/background.jpeg"></router-link> 
                     <div class="text">Join more <br>sub-clubs...<br></div>
                 </div>
             </form>
@@ -21,10 +20,10 @@
 </template>
 
 <script>
-import header from '../components/SubClubPage/SubClubPageHeader.vue'
+import SubClubPageHeader from '../components/SubClubPage/SubClubPageHeader.vue';
 export default{
     components:{
-        'header-helper':header,
+        SubClubPageHeader,
     },
     data(){
         return{
