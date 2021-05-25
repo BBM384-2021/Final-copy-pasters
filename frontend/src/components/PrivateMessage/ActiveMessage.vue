@@ -27,7 +27,6 @@ export default {
     border-radius: 5px;
     width: fit-content;
 }
-
     .message-con span{
     margin-left: 25px;
     font-size: 11px;

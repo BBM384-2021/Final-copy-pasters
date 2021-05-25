@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <a class="logo" href="#">Interest Club</a>
+        <div class="logo">Interest Club</div>
         <div class="start">Start</div>
         <div class="progress-bar-front"></div>
         <div class="progress-bar-back"></div>

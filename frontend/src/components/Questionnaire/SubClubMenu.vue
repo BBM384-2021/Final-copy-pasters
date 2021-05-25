@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="next_button">
-        <button class="next">Next</button>
+        <button class="next" @click="()=>$router.push('/questionnaire')">Next</button>
     </div>
 </form>
 
