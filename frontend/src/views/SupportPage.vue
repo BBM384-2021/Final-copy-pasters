@@ -33,9 +33,10 @@ export default {
     }
     .title{
         color:black;
-        font-size: 1.5em;
-        padding: 3%;
-        padding-left: 6%;
+        font-size: 1.6em;
+        padding: 6%;
+        padding-left: 8%;
+        padding-bottom:4%;
         margin:auto;
         font-weight: bold;
     }
