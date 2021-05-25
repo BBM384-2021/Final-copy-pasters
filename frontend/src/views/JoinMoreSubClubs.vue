@@ -1,4 +1,5 @@
 <template>
+  <div><SubClubPageHeader/></div>
     <div class="page">
       <h1 class=title>Join More Sub-Clubs</h1>
       <p>You can view the newly opened and the other sub-clubs below. 
@@ -12,11 +13,14 @@
 <script>
 import SubClubMenu from '@/components/Questionnaire/SubClubMenu.vue'
 import NewSubClubsList from '@/components/Questionnaire/NewSubClubsList.vue'
+import SubClubPageHeader from '@/components/SubClubPage/SubClubPageHeader.vue';
+
 export default {
     name: 'JoinMoreSubClubs',
     components: {
         SubClubMenu,
-        NewSubClubsList
+        NewSubClubsList,
+        SubClubPageHeader
   }
 }
 </script>

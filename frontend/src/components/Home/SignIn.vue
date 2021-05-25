@@ -14,7 +14,7 @@
           </form>
         </div>
         <div class="small-box">
-           <p>Don't have an account? <a href="#" @click="goToSignUp()"><Strong>Sign up</Strong></a></p>
+           <p>Don't have an account? <a href="#" @click="()=>$router.push('/sign_up')"><Strong>Sign up</Strong></a></p>
         </div>
       </main>
     </body>
@@ -24,11 +24,6 @@
   
   export default {
   name: "SignIn",
-  methods: {
-    goToSignUp(){
-      this.$router.push({path: "/sign_up"});
-    }
-  }
     
   }
 </script>

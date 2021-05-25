@@ -4,11 +4,11 @@
     <div>
     <div class="main">
         <div class="image-header">
-            <img class="subclub-image" :src="subclub.img">
+            <img class="subclub-image" :src="currentSubClub.img">
             <div class="subclub-name">
-                <h1>{{subclub.name}}</h1>     
+                <h1>{{currentSubClub.name}}</h1>     
                 <img class="star-img" src="~@/assets/star.png">
-                <p id="main-rate">{{subclub.rate}}</p>    
+                <p id="main-rate">{{currentSubClub.rate}}</p>    
             </div>
             </div>
             <div v-if="show" class="big-box-member">
@@ -19,12 +19,12 @@
              <div v-else class="big-box-not-member">
                     <div class="about">
                         <p id="about">About</p>
-                        <div class="about-text"><p id="subclub-about">{{subclub.about}}</p></div>
+                        <div class="about-text"><p id="subclub-about">{{currentSubClub.about}}</p></div>
                     </div>
                     <div class="rate-review">
                         <p id="rate-review">Ratings&#38;Reviews</p>
                         <div class="rate-review-outer">
-                            <div class="rates-review-text" v-for="rates_reviews in subclub.rates_reviews" :key="rates_reviews">
+                            <div class="rates-review-text" v-for="rates_reviews in currentSubClub.rates_reviews" :key="rates_reviews">
                                 <p id="rate">{{rates_reviews.rate}}</p>
                                 <div class="review-text"><p id="subclub-review">{{rates_reviews.review}}</p></div>
                             </div>
@@ -111,16 +111,23 @@ export default{
             let isMember = this.user.subclubs.includes(this.subclub)
             if (isMember) return true
             return false
-        }
+        },
+        currentSubClub(){
+           for(let i = 0; i < this.$store.getters.getSubClubs.length; i++){
+                if(this.$store.getters.getSubClubs[i].name == this.$route.params.subclubname){
+                    return this.$store.getters.getSubClubs[i]
+                }
+            }
+            return this.$store.getters.getSubClubs[0] 
+            
+        } 
     },
     
 }
-
 </script>
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700&display=swap');
-
 .main{
     display: grid;
     grid-template-rows: 10rem 1fr;
@@ -128,7 +135,6 @@ export default{
    /* grid-template-areas:"imageHeader"
                         "bigBox";       */ 
 }
-
 .image-header{
     margin-top: 0.3%;
     grid-area: imageHeader;
@@ -136,21 +142,17 @@ export default{
     grid-row: 1/2;
     grid-column: 1/2;
 }
-
-
 p#main-rate{
     position: relative;
     top: -2.5em;
     left: 1.5%;
     font-size: 150%;
 }
-
 img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
-
 .subclub-name{
     position: relative;
     top: -50%;
@@ -160,7 +162,6 @@ img{
     color: white;
     font-weight:500;
 }
-
 .big-box-not-member{
     //grid-area: bigBox;
     grid-row: 2/3;
@@ -172,7 +173,6 @@ img{
                         ". rateReview ."
                         ". joinSubclub .";
 }
-
 .big-box-member{
     grid-row: 2/3;
     grid-column: 1/2;
@@ -184,9 +184,7 @@ img{
                     ". timelineMembersChatRoomEventsRateReview ."
                     ". . .";
                         
-
 }
-
 .timeline-members-chatroom-event-ratereview{
     grid-area: timelineMembersChatRoomEventsRateReview;
     
@@ -195,7 +193,6 @@ img{
     justify-self: center;
    
 }
-
 .about{
     grid-area: about;
     justify-items: start;
@@ -204,14 +201,12 @@ img{
     grid-template-areas:"aboutP"
                         "aboutDiv";
 }
-
 p#about{
     grid-area: aboutP;
     align-self: center;
     font-size: 150%;
     margin-bottom: -4%;
 }
-
 .about-text{
     grid-area: aboutDiv;
     display: flex;
@@ -223,7 +218,6 @@ p#about{
     text-align: center;
     border-radius: 1rem;
 }
-
 p#subclub-about{
     display: table;
     font-size:150%;
@@ -234,7 +228,6 @@ p#subclub-about{
     border-radius: 0.7rem;
     padding: 1%;
 }
-
 .rate-review{
     grid-area: rateReview; 
     display: grid;
@@ -242,11 +235,10 @@ p#subclub-about{
     grid-template-areas:"rateReviewTitle"
                         "rateReviewDiv";
 }
-
 .rate-review-outer{
     grid-area: rateReviewDiv;
     background-color: #f5e7f3;
-    height: 100%;
+    height: 150%;
     overflow: auto;
     border-radius: 1rem;
   /*  justify-items: start;
@@ -256,12 +248,11 @@ p#subclub-about{
     border-radius: 1rem;
     height: 30%;
     overflow: auto; */
+     margin-top: 5%;
 }
-
 .rates-review-text{
     margin-left: 5%;
 }
-
 p#rate{
     position: relative;
     top: 2em;
@@ -272,34 +263,29 @@ p#rate{
     left: 1.5%;
     font-size: 150%; */
 }
-
 p#subclub-review{
     display: table;
     font-size:120%;
     background-color:white;
     color:black;
-    width: 98%;
+    width: 90%;
     height: 3em;
     border-radius: 1rem;
     padding: 1%;
     
 }
-
-
 .review-text{
  /*   justify-self: center;
     padding: 1%; */
     position: relative;
     top: 2em;
 }
-
 p#rate-review{
     grid-area: rateReviewTitle;
     align-self: center;
     font-size: 150%;
     margin-bottom: -1%;
 }
-
 .join-subclub{
     grid-area: joinSubclub; 
     display: grid;
@@ -309,12 +295,10 @@ p#rate-review{
                         "button"; 
    
 }
-
 p#join{
     grid-area: join;
     font-size: 150%;
 }
-
 .apply{
     grid-area: button;
     justify-self: center;
@@ -338,7 +322,6 @@ p#join{
     align-self: end;
     margin-bottom: -10%; */
 }
-
 .star-img{
     width: 2%;
     position: relative;
@@ -346,10 +329,6 @@ p#join{
     left: -1%;
   
 }  
-
-
-
-
 ul li{
     
     
@@ -358,10 +337,7 @@ ul li{
     margin-top:-1.5em;
  
 }
-
-
 @media all and (max-width: 768px){
-
     p#main-rate{
         font-size: 50%;
     }
@@ -370,9 +346,6 @@ ul li{
         margin-bottom: -25%;
     }
 }
-
 @media all and (max-width: 425px){
-
 }
-
 </style>

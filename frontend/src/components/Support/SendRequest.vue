@@ -29,7 +29,7 @@
                 <input class="sub_club_name" required>
           </div>
           <div v-if=request_type class="submit_button">
-            <button class="submit" @click=" goToSupportInfoPage()">Submit</button>
+            <button class="submit" @click="()=>$router.push('/support_info')">Submit</button>
         </div>
       </form>
 
@@ -42,11 +42,6 @@ export default {
             request_type:''
         }
     },
-    methods:{
-        goToSupportInfoPage(){
-            this.$router.push("/support_info");
-        }
-    }
 }
 </script>
 
