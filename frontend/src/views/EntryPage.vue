@@ -4,10 +4,10 @@
             <div class="main">
                 <h2>My Sub-Clubs</h2>
             <form class="subclub-form" action="#">
-                <div class="subclub" v-for="club in user.subclubs" :key="club">
+                <div class="subclub" v-for="club in userSubClubs" :key="club">
                     <div class="image-div">
-                        <router-link class="select-subclub" :to="`/sub_club_page/${club.name}`"><img class="subclub-image" :src="club.img"></router-link> 
-                        <div class="text">{{club.name}}</div>
+                        <router-link class="select-subclub" :to="`/sub_club_page/${club.title}`"><img class="subclub-image" :src="club.imgUrl"></router-link> 
+                        <div class="text">{{club.title}}</div>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -42,7 +42,18 @@ export default{
                     img:require("../assets/sub-clubs-images/Piano.jpeg")}]
 	    }
       }
+    },
+    computed:{
+        userSubClubs(){
+            return this.$store.getters.getUserSubClubs
+        }
+    },
+    methods:{
+        getImgUrl(imgUrl){
+            return require(imgUrl)
+        }
     }
+
 }
 </script>
 
