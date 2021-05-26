@@ -74,7 +74,7 @@ const routes = [
     component: PrivateMessage
   },
   {
-    path: '/profile_and_setting',
+    path: '/profile_page',
     name: 'ProfileAndSetting',
     component: ProfileAndSetting
   },
