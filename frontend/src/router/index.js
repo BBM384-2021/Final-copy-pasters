@@ -11,6 +11,7 @@ import SubClubPage from "../views/SubClubPage.vue"
 import SupportPage from '../views/SupportPage.vue'
 import SupportInfo from '../components/Support/SupportInfo.vue'
 import PrivateMessage from '../views/PrivateMessage.vue'
+import ProfileAndSetting from '../views/ProfileAndSetting.vue'
 const routes = [
   {
     path: '/',
@@ -71,6 +72,11 @@ const routes = [
     path: '/private_message',
     name: 'PrivateMessage',
     component: PrivateMessage
+  },
+  {
+    path: '/profile_and_setting',
+    name: 'ProfileAndSetting',
+    component: ProfileAndSetting
   },
   
 ]
