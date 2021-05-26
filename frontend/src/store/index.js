@@ -99,7 +99,37 @@ export default createStore({
               },
           ]}, 
     ],
+    sub_club_member_reports:[
+      {id:0,member_name:"Emir", description:"x",attachment:""},
+      {id:1,member_name:"Ali", description:"x",attachment:""},
+      {id:2,member_name:"Veli", description:"y",attachment:""},
+      {id:3,member_name:"Ece", description:"z",attachment:""},
+      {id:4,member_name:"Efe", description:"xss",attachment:""},
+      {id:5,member_name:"Selim", description:"xfff",attachment:""},
+      {id:6,member_name:"Hande", description:"xvfvd",attachment:""},
+    ],
     
+    //all members of a sub-club
+    sub_club_members:[
+      {
+        "subClubId": 0,
+        "userId": 0,
+        "subClubRole": 0,
+        "banCount": 0
+      },
+      {
+        "subClubId": 0,
+        "userId": 1,
+        "subClubRole": 0,
+        "banCount": 1
+      },
+      {
+        "subClubId": 0,
+        "userId": 2,
+        "subClubRole": 0,
+        "banCount": 3
+      }
+    ],
     
  
   },

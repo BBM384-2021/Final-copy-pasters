@@ -2,17 +2,21 @@
     <div><SubClubPageHeader/></div>
       <div class="support_page">
       <h1 class=title>Support Page</h1>
+      <h3>Sub-Club Admin View</h3>
+      <div class="manage_requests"><ManageRequests/></div>
       <div><SendRequest/></div>
       </div>
 </template>
 
 <script>
 import SendRequest from '@/components/Support/SendRequest.vue';
+import ManageRequests from '@/components/Support/ManageRequests.vue';
 import SubClubPageHeader from '@/components/SubClubPage/SubClubPageHeader.vue';
 export default {
-    name: 'SupportPage',
+    name: 'SupportPageSCA',
     components:{
         SendRequest,
+        ManageRequests,
         SubClubPageHeader
     },
     
@@ -36,9 +40,21 @@ export default {
         font-size: 1.6em;
         padding: 5%;
         padding-left: 8%;
-        padding-bottom:3%;
+        padding-bottom:1%;
         margin:auto;
         font-weight: bold;
     }
 
+    h3{
+        color:black;
+        padding-top: 2%;
+        padding-left: 6%;
+        padding-bottom:3%;
+        margin:auto;
+        font-weight: bold;
+        font-size:1.3em;
+    }
+    .manage_requests{
+        padding-bottom: 1%;
+    }
 </style>

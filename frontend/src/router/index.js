@@ -9,6 +9,7 @@ import JoinMoreSubClubs from '../views/JoinMoreSubClubs.vue'
 import EntryPage from '../views/EntryPage.vue'
 import SubClubPage from "../views/SubClubPage.vue"
 import SupportPage from '../views/SupportPage.vue'
+import SupportPageSCA from '../views/SupportPageSCA.vue'
 import SupportInfo from '../components/Support/SupportInfo.vue'
 import PrivateMessage from '../views/PrivateMessage.vue'
 
@@ -62,6 +63,11 @@ const routes = [
     path: '/support_page',
     name: 'SupportPage',
     component: SupportPage
+  },
+  {
+    path: '/support_page_sub_club_admin',
+    name: 'SupportPageSCA',
+    component: SupportPageSCA
   },
   {
     path: '/support_info',

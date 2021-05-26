@@ -58,7 +58,7 @@ export default {
     h5{
         display:flex;
         justify-content:center;
-        font-size:1.3em;
+        font-size:1.4em;
     }
     .selection_part{
         display:flex;

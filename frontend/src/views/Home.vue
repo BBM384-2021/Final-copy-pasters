@@ -46,7 +46,6 @@ export default {
     background-size: 100% 100%;
   }
   .container{
-    width: 100%;
     max-height: 90px;
     margin: 0;
     padding: 1.2em;
