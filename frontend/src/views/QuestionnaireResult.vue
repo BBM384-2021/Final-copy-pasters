@@ -7,15 +7,15 @@
             <h2 class="sub-club"> Sub-Club</h2>
             <h2 class="score"> Score</h2>
             <h2 class="join-que"> Want to Join?</h2>
-            <div class="sub-club-section " v-for="(subclub) in subclubs" :key="subclub.id">
+            <div class="sub-club-section " v-for="(sub_club) in $store.state.selected_sub_clubs" :key="sub_club.id">
                         <div class="gallery">
-                            <img class="image" :src="require('@/assets/' + subclub.name + '_mini.jpeg')">
-                            <div class="desc">{{subclub.name}}</div>
+                            <img class="image" :src="require('@/assets/' + sub_club.name + '_mini.jpeg')">
+                            <div class="desc">{{sub_club.name}}</div>
                         </div>
-                    <h3 v-if="subclub.score>50" class="score-result" style="color:#0cf12a ">{{subclub.score}}%</h3>
-                    <h3 v-else class="score-result" style="color:red ">{{subclub.score}}%</h3>
-                    <div v-if="subclub.score>50">
-                        <input class="join-btn option-input " type="checkbox" v-bind:value="subclub.name"  v-model="selected_subclubs" >
+                    <h3 v-if="$store.state.analyze_results[sub_club.id] >= 50" class="score-result" style="color:#0cf12a ">{{$store.state.analyze_results[sub_club.id]}}%</h3>
+                    <h3 v-else class="score-result" style="color:red ">{{$store.state.analyze_results[sub_club.id]}}%</h3>
+                    <div v-if="$store.state.analyze_results[sub_club.id] >= 50">
+                        <input class="join-btn option-input " type="checkbox" v-bind:value="sub_club.name"  v-model="selected_sub_clubs" >
                     </div>
             </div>
         <button @click=" goToHomePage()" class="button "><span> JOIN </span></button>
@@ -39,36 +39,7 @@ export default {
       
         return{
             selected_subclubs:[],
-            subclubs:[
-             { 
-                id:1,
-	    		name:"Yoga",
-	    		score:70,
-               
-              
-	    		
-	    	},
-	    	{  
-                id:3,
-	    		name:"Tennis",
-	    		score:45,
-            
-               
-	    	},
-            	{  
-                id:4,
-	    		name:"Piano",
-	    		score:90,
-               
-	    	},
-            {  
-                id:6,
-	    		name:"Cooking",
-	    		score:35,
-               
-	    	},
-            
-            ]
+            subclubs: []
         }
     },
     methods:{

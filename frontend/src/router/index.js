@@ -41,11 +41,6 @@ const routes = [
     component: SignUp
   },
   {
-    path: '/sub_club_selection',
-    name: 'QueSelectClub',
-    component: QueSelectClub
-  },
-  {
     path: '/questionnaire',
     name: 'Questionnaire',
     component: Questionnaire
