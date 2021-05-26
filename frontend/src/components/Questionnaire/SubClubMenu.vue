@@ -25,7 +25,8 @@
         </div>
     </div>
     <div class="next_button">
-        <button class="next" @click="()=>$router.push('/questionnaire')">Next</button>
+        <button v-if="Object.keys($store.state.selected_sub_clubs).length === 0" disabled class="disabled_next" @click="()=>$router.push('/questionnaire')">Next</button>
+        <button v-else class="next" @click="()=>$router.push('/questionnaire')">Next</button>
     </div>
 </form>
 
@@ -216,6 +217,22 @@ export default {
         background-color: #BA7EA0;
         color: white;
         cursor: pointer;
+        padding: 10px;
+        width: 100px;
+        height:50px;
+        border: .1px solid white;
+        text-align: center;
+        outline: none;
+        transition: 0.4s;
+        text-decoration: none;
+        font-size: 1.2em;
+        border-radius: 10px;
+        font-weight: 500;
+    }
+    .disabled_next{
+        background-color: #c0c0c0;
+        color: black;
+        cursor:not-allowed;
         padding: 10px;
         width: 100px;
         height:50px;
