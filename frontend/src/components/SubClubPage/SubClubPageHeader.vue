@@ -24,7 +24,7 @@
               <span class="chevron-down-btn" ><i class="fa fa-chevron-down"></i></span>
               <div class="dropdown-content">
                 <ul>
-                  <li><p>Signed in as {{user.username}}</p></li> 
+                  <li><p>Signed in as {{userFirstName}}</p></li> 
                   <li><button @click=" ()=>$router.push('/profile_page')">Profile</button></li>
                   <li><button @click=" ()=>$router.push('/support_page')">Support</button></li>
                   <li><button @click=" ()=>$router.push('/')">Log Out</button></li>  
@@ -57,6 +57,11 @@
             img:require("@/assets/sub-clubs-images/Piano.jpeg")}]
 	    	}
       }
+    },
+    computed:{
+        userFirstName(){
+           return this.$store.getters.getUserFirstName
+        },
     },
 }
 </script>
