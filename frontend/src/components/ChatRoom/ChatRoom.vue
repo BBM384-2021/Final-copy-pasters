@@ -32,7 +32,6 @@ import conversations from "../store/ChatRoomData.js";
 import messaging from "../components/ChatRoom/ChatRoomActiveMessage.vue";
     export default {
         components : {
-            "clubheader" : SubClubPageHeader,
             messaging, 
        },
        data: function(){
