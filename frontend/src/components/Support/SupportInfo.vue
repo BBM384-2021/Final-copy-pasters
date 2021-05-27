@@ -5,7 +5,7 @@
             Your request has been delivered! You will be informed after your request is evaluated.
         </div>
         <div class="return_button">
-            <button class="return" @click=" goToEntryPage()"> Go Back to Home Page</button>
+            <button class="return" @click="()=>$router.push('/entry_page')"> Go Back to Home Page</button>
         </div>
     </div>
   
@@ -17,11 +17,6 @@ export default {
     components:{
         SubClubPageHeader
     },
-    methods:{
-        goToEntryPage(){
-            this.$router.push("/entry_page");
-        }
-    }
 }
 </script>
 

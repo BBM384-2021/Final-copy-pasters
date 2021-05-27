@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="next_button">
-        <button class="next">Next</button>
+        <button class="next" @click="()=>$router.push('/questionnaire')">Next</button>
     </div>
 </form>
 
@@ -33,7 +33,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
@@ -43,7 +42,6 @@ export default {
     --primary-color: #BA7EA0;
     --bolder-color: #742957;
     }
-
     .container{
       padding-left: 5%;
       padding-right: 5%;
@@ -90,7 +88,6 @@ export default {
             font-size: 1.1em;
             font-weight:500; 
         }
-
         .vertical-menu .accordion.active {
             background-color: #BA7EA0;
             color: white;
@@ -102,7 +99,6 @@ export default {
         overflow: hidden;
         transition: max-height 0.2s ease-out;
     }
-
     .menu{
         padding: 0;
         margin: 0;
@@ -110,12 +106,10 @@ export default {
         flex-wrap: wrap;
         justify-content: center;
     }
-
     li {
         display:flex;
         flex-direction:column;
         justify-content: center;
-
         .sub-club-name {      
             font-size: 1.2em;
             position:relative;
@@ -125,11 +119,9 @@ export default {
             
         }
     }
-
     input[type="checkbox"] {
         display: none;
     }
-
     label {
     border: 1px solid #fafafa;
     margin: 10px;
@@ -144,7 +136,6 @@ export default {
     -ms-user-select: none;
     user-select: none;
     }
-
     label::before {
     background-color: white;
     color: white;
@@ -162,7 +153,6 @@ export default {
     transition-duration: 0.4s;
     transform: scale(0);
     }
-
     label img {
     height: 5em;
     width: 5em;
@@ -170,25 +160,21 @@ export default {
     transform-origin: 50% 50%;
     border-radius: 10px;
     }
-
     :checked+label {
     border-color: #ddd;
     border-radius: 10px;
     }
-
     :checked+label::before {
     content: "✓";
     background-color: grey;
     transform: scale(1);
     
     }
-
     :checked+label img {
     transform: scale(0.9);
     box-shadow: 0 0 5px #333;
     z-index: -1;
     }
-
     .selected_sc_list{
         padding: 0;
         margin: 0;

@@ -36,32 +36,51 @@ export default createStore({
 
     //current user
     user:{ 
-      id:1,
-      username:"bandit",
+      id:0,
+      firstName:"user1",
       email:"basak945@gmail.com",
       subclubs:[{ 
           id:1,
-          name:"Yoga",
-          img: require("../assets/sub-clubs-images/Yoga.jpeg"),
-          rate: 3.2,
-          about:"This is about yoga subclub"
+          title:"Yoga",
+          imgUrl: require("../assets/sub-clubs-images/Yoga.jpeg"),
+          averageRate: 3.2,
+          about:"This is about yoga subclub",
+          online_events:[
+            {
+              subject: "Why should we do yoga",
+              date: "2021-05-26",
+              platform: "discord",
+              invitationLink: "invitationLink",
+              subClubId: 0
+            }
+          ]
+          
         },
       {
           id:2,
-          name: "Piano",
-          img:require("../assets/sub-clubs-images/Piano.jpeg"),
-          rate:4.0,
+          title: "Piano",
+          imgUrl:require("../assets/sub-clubs-images/Piano.jpeg"),
+          averageRate:4.0,
           about:"This is about piano subclub"
-      }]
+      },{ 
+        id:3,
+        title:"Puzzle",
+        imgUrl: require("../assets/sub-clubs-images/Puzzle.jpeg"),
+        averageRate: 3.2,
+        about:"This is about puzzle subclub"
+      },]
  
     },
     
+    //current sub-club name
+    sub_club_name:"",
+
     //all sub-clubs
     subclubs:[{
-      id:0,
-      name:"Yoga",
-      img: require("../assets/sub-clubs-images/Yoga.jpg"),
-      rate: 3.2,
+      id:1,
+      title:"Yoga",
+      imgUrl: "../assets/sub-clubs-images/Yoga.jpg",
+      averageRate: 3.2,
       about:"This is about yoga subclub",
       rates_reviews:[{
               rate: 3,
@@ -84,10 +103,10 @@ export default createStore({
                   review: "very good",     
                   },]
       },{
-      id:1,
-      name:"Piano",
-      img: require("../assets/sub-clubs-images/Piano.jpg"),
-      rate: 4,
+      id:2,
+      title:"Piano",
+      imgUrl: "../assets/sub-clubs-images/Piano.jpg",
+      averageRate: 4,
       about:"This is about Piano subclub",
       rates_reviews:[{
               rate: 3,
@@ -98,27 +117,21 @@ export default createStore({
               review: "very good",
               },
           ]}, 
-      {
-        id:2,
-        name:"Novel",
-        img: require("../assets/sub-clubs-images/Novel.jpg"),
-        rate: 3.2,
-        about:"This is about novel subclub",
+      { 
+        id:3,
+        title:"Puzzle",
+        imgUrl: "../assets/sub-clubs-images/Puzzle.jpeg",
+        averageRate: 3.2,
+        about:"This is about puzzle subclub",
         rates_reviews:[{
-                  rate: 3,
-                  review: "not bad",
-                  },
-                  {
-                  rate: 5,
-                  review: "very good",
-                  },
-                  {
-                  rate: 5,
-                  review: "very good",     
-                  },
-                  
-                
-                ]
+          rate: 3,
+          review: "not bad",
+          },
+          {
+          rate: 5,
+          review: "very good",
+          },
+      ]
       },
     ],
     
@@ -142,7 +155,9 @@ export default createStore({
       const index = state.selected_sub_clubs.indexOf(sub_club)
       if (index >= 0)
           state.selected_sub_clubs.splice(index,1)
-    }
+    },
+
+
   },
   actions: {
    
@@ -151,10 +166,20 @@ export default createStore({
   },
   getters:{
     getSubClubs(state){
-      return state.subclubs.filter(s => s.name)
-    }
+      return state.subclubs.filter(s => s.title)
+    },
+
+    getUserSubClubs(state){
+      return state.user.subclubs.filter(s => s.title)
+    },
+
+    getUserFirstName(state){
+      return state.user.firstName
+    },
+
+
+
+
   }
-
-
 
 })

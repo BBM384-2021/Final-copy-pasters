@@ -20,7 +20,7 @@
           </form>
         </div>
         <div class="small-box">
-           <p>Already a member? <a href="#" @click="goToSignIn()"><Strong>Log in</Strong></a></p>
+           <p>Already a member? <a href="#" @click="()=>$router.push('/sign_in')"><Strong>Log in</Strong></a></p>
         </div>
       </main>
     </body>
@@ -31,12 +31,6 @@
   
   export default {
   name: "SignUp",
-  methods: {
-    goToSignIn(){
-      this.$router.push({path: "/sign_in"});
-    }
-  }
-    
   }
 </script>
 
@@ -102,7 +96,6 @@
     grid-area: big-box;
     
   }
-
   form{
     position:relative;
     top: 0;
@@ -139,7 +132,6 @@
     height: 1.5em;
     width: 50%;
     opacity: .5;
-
     &:before {
       content: '';
       background: black;

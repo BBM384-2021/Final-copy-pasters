@@ -17,17 +17,17 @@
             </div>
             <div class="icons">
               <button class="btn"><i class="fa fa-home" ></i></button>
-              <button class="btn" @click=" goToChat()"><i class="fa fa-comment"></i></button>
+              <button class="btn" @click=" ()=>$router.push('/private_message')"><i class="fa fa-comment"></i></button>
               <button class="btn"><i class="fa fa-user"></i></button>
             </div>
             <div class="chevron-down">
               <span class="chevron-down-btn" ><i class="fa fa-chevron-down"></i></span>
               <div class="dropdown-content">
                 <ul>
-                  <li><p>Signed in as {{user.username}}</p></li> 
-                  <li><button @click=" goToProfile()">Profile</button></li>
-                  <li><button @click=" goToSupport()">Support</button></li>
-                  <li><button @click=" goToHomePage()">Log Out</button></li>  
+                  <li><p>Signed in as {{userFirstName}}</p></li> 
+                  <li><button @click=" ()=>$router.push('/profile_page')">Profile</button></li>
+                  <li><button @click=" ()=>$router.push('/support_page')">Support</button></li>
+                  <li><button @click=" ()=>$router.push('/')">Log Out</button></li>  
                 </ul>
               </div>
             </div>
@@ -58,20 +58,11 @@
 	    	}
       }
     },
-    methods:{
-      goToProfile(){
-        this.$router.push("/profile_page");
-      },
-      goToSupport(){
-        this.$router.push("/support_page");
-      },
-      goToHomePage(){
-        this.$router.push("/");
-      },
-      goToChat(){
-        this.$router.push("/private_message");
-      }
-    }  
+    computed:{
+        userFirstName(){
+           return this.$store.getters.getUserFirstName
+        },
+    },
 }
 </script>
 
