@@ -38,7 +38,7 @@
 
                             <!--Subclub Info Img and Description--->
                             <div class="subclub-item" style="margin-left:25px">
-                                    <img class="image" :src="require('@/assets/sub-clubs-images/' + subclub.name + '_mini.jpeg')">
+                                    <img class="image" :src="require('@/assets/' + subclub.name + '_mini.jpeg')">
                                     <div class="desc">{{subclub.name}}</div>
                             </div>
                         </div>
