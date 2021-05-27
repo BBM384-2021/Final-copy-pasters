@@ -1,8 +1,6 @@
 <template>
     <div>
-        <clubheader></clubheader>
         <div class="message-container column">
-               
                 <div class="list-messages">
                     <div class="scroll" id="container">
                         <div class="messages">
@@ -30,7 +28,6 @@
 </template>
 
 <script>
-import SubClubPageHeader from "../components/SubClubPage/SubClubPageHeader.vue";
 import conversations from "../store/ChatRoomData.js";
 import messaging from "../components/ChatRoom/ChatRoomActiveMessage.vue";
     export default {
