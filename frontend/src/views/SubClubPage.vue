@@ -13,63 +13,70 @@
             </div>
             <div v-if="show" class="big-box-member">
                 <div class="timeline-members-chatroom-event-ratereview">
-                
+                    <div class="tab">                      
+                        <button id="1" class="tablinks" @click="switchTo('Members')">Members</button>
+                        <button id="2" class="tablinks" @click="switchTo('Chat Room')">Chat Room</button>
+                        <button id="3" class="tablinks" @click="switchTo('Events')">Events</button>
+                        <button id="4" class="tablinks" @click="switchTo('Rate&Review')">Rate&#38;Review</button>    
+                    </div>
+                    <event v-if="eventsShow"></event>
+                    <members v-if="membersShow"></members>
+                    <rate-and-review v-if="rateAndReviewShow"></rate-and-review>
+                    <chat-room v-if="chatRoomShow"></chat-room>
                 </div>
             </div>
-             <div v-else class="big-box-not-member">
-                    <div class="about">
-                        <p id="about">About</p>
-                        <div class="about-text"><p id="subclub-about">{{currentSubClub.about}}</p></div>
-                    </div>
-                    <div class="rate-review">
-                        <p id="rate-review">Ratings&#38;Reviews</p>
-                        <div class="rate-review-outer">
-                            <div class="rates-review-text" v-for="rates_reviews in currentSubClub.rates_reviews" :key="rates_reviews">
-                                <p id="rate">{{rates_reviews.rate}}</p>
-                                <div class="review-text"><p id="subclub-review">{{rates_reviews.review}}</p></div>
-                            </div>
+            <div v-else class="big-box-not-member">
+                <div class="about">
+                    <p id="about">About</p>
+                    <div class="about-text"><p id="subclub-about">{{currentSubClub.about}}</p></div>
+                </div>
+                <div class="rate-review">
+                    <p id="rate-review">Ratings&#38;Reviews</p>
+                    <div class="rate-review-outer">
+                        <div class="rates-review-text" v-for="rates_reviews in currentSubClub.rates_reviews" :key="rates_reviews">
+                            <p id="rate">{{rates_reviews.rate}}</p>
+                            <div class="review-text"><p id="subclub-review">{{rates_reviews.review}}</p></div>
                         </div>
                     </div>
-                </div> 
-    </div>
+                </div>
+            </div> 
+        </div>
     </div>
 </template>
 
 <script>
 import header from '../components/SubClubPage/SubClubPageHeader.vue'
+import events from '../components/SubClubPage/Events.vue'
+import members from '../components/SubClubPage/Members.vue'
+import rateAndReview from '../components/SubClubPage/RateAndReview.vue'
+import chatRoom from '../components/ChatRoom/ChatRoom.vue'
 export default{
     components:{
         'header-helper':header,
+        'event': events,
+        'members':members,
+        'rate-and-review':rateAndReview,
+        'chat-room':chatRoom
     },
     data(){
         return{
-            user:{ 
-                id:1,
-                username:"bandit",
-                email:"basak945@gmail.com",
-                subclubs:[{ 
-                    id:1,
-	    		    name:"Yoga",
-	    		    img: require("@/assets/sub-clubs-images/Yoga.jpeg"),
-                    rate: 3.2,
-                    about:"This is about yoga subclub"
-                },
-	            {
-                    id:2,
-	    		    name: "Piano",
-                    img:require("@/assets/sub-clubs-images/Piano.jpeg"),
-                    rate:4.0,
-                    about:"This is about piano subclub"
-                }]
-	        },
-    
+            subClubName: this.$route.params.subclubname,
+            membersShow:true,
+            chatRoomShow:false,
+            eventsShow:false,
+            rateAndReviewShow:false,
         }
     },
     computed:{
         show(){
-            let isMember = this.user.subclubs.includes(this.subclub)
-            if (isMember) return true
-            return false
+            let isMember = false
+            for(let i = 0; i < this.$store.getters.getUserSubClubs.length; i++){
+                if(this.$store.getters.getUserSubClubs[i].title == this.$route.params.subclubname){
+                    isMember = true
+                    break 
+                }
+            }
+            return isMember
         },
         currentSubClub(){
            for(let i = 0; i < this.$store.getters.getSubClubs.length; i++){
@@ -83,7 +90,35 @@ export default{
     methods:{
         getImgUrl(imgUrl){
             return require(imgUrl)
+        },
+        
+        switchTo(div_name){
+            if(div_name=='Members'){
+                this.membersShow = true
+                this.chatRoomShow =false
+                this.eventsShow = false
+                this.rateAndReviewShow = false
+            }
+            if(div_name=='Events'){
+                this.membersShow = false
+                this.chatRoomShow =false
+                this.eventsShow = true
+                this.rateAndReviewShow = false
+            }
+            if(div_name=='Chat Room'){
+                this.membersShow = false
+                this.chatRoomShow =true
+                this.eventsShow = false
+                this.rateAndReviewShow = false
+            }
+            if(div_name=='Rate&Review'){
+                this.membersShow = false
+                this.chatRoomShow =false
+                this.eventsShow = false
+                this.rateAndReviewShow = true
+            }
         }
+
     }
     
 }
@@ -97,6 +132,7 @@ export default{
     display: grid;
     grid-template-rows: 10rem 1fr;
     font-family: 'Alegreya Sans', sans-serif;
+    
    /* grid-template-areas:"imageHeader"
                         "bigBox";       */ 
 }
@@ -146,25 +182,65 @@ img{
 }
 
 .big-box-member{
-    grid-row: 2/3;
-    grid-column: 1/2;
-    display: grid;
-   
-    grid-template-rows: 20% 40% 1fr;
-    grid-template-columns: 1fr 70% 1fr;
-    grid-template-areas: ". . ."
-                    ". timelineMembersChatRoomEventsRateReview ."
-                    ". . .";
-                        
-
+    overflow: auto;
 }
+
+
+button#1{
+    grid-area: button1;
+}
+button#2{
+    grid-area: button2;
+}
+button#3{
+    grid-area: button3;
+}
+button#4{
+    grid-area: button4;
+}
+
+
+.tab{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "button1 button2 button3 button4";
+   // margin-left: 5%;
+}
+
+
+
+.tab button{
+    background-color: inherit;
+    border:hotpink;
+    color: rgb(175, 150, 179);
+    border: 1px solid rgb(245, 219, 227);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 1% 4%;
+    transition: 0.3s; 
+    font-size: xx-large;
+}
+
+.tab button:hover {
+  background-color: rgb(166, 105, 172);
+  color: white;
+}
+
+
+
 
 .timeline-members-chatroom-event-ratereview{
     grid-area: timelineMembersChatRoomEventsRateReview;
-    
+    height: 50em;
     border-radius: 2em;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
     border: 0.2em solid rgb(245, 219, 227);
     justify-self: center;
+    overflow: auto;
    
 }
 
@@ -222,13 +298,6 @@ p#subclub-about{
     height: 150%;
     overflow: auto;
     border-radius: 1rem;
-  /*  justify-items: start;
-    justify-content: center;
-    background-color: #f5e7f3;
-    text-align: start;
-    border-radius: 1rem;
-    height: 30%;
-    overflow: auto; */
      margin-top: 5%;
 }
 
@@ -241,10 +310,6 @@ p#rate{
     top: 2em;
     left: 1.5%;
     margin-bottom: 1%;
-  /*  position: relative;
-    top: -1.5em;
-    left: 1.5%;
-    font-size: 150%; */
 }
 
 p#subclub-review{
@@ -261,8 +326,6 @@ p#subclub-review{
 
 
 .review-text{
- /*   justify-self: center;
-    padding: 1%; */
     position: relative;
     top: 2em;
 }
@@ -301,16 +364,7 @@ p#join{
     color: white;
     font-size: 150%;
     margin-top: 10%;
-   /* width: 50%;
-    justify-self: center;
-    height: 300%;
-    background: #b983b1;
-    border:none;
-    border-radius: 1rem;
-    color: white;
-    font-size: 150%;
-    align-self: end;
-    margin-bottom: -10%; */
+
 }
 
 .star-img{
@@ -343,10 +397,11 @@ ul li{
         font-size: 100%;
         margin-bottom: -25%;
     }
+    .tab button{
+        font-size: x-large;
+    }
+    
 }
 
-@media all and (max-width: 425px){
-
-}
 
 </style>
