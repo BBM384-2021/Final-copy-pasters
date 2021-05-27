@@ -3,21 +3,21 @@
         <questionnaire-header class="bar" >  </questionnaire-header>
         <h1 class="h1">Questionnaire</h1>
         <form class="questionnaire" action="#">
-            <div class="space" v-for="(question,index_of_question) in questions" :key="index_of_question">
-                <div class="question text "> {{question.questionText}}</div>
+            <div class="space" v-for="(question, index_of_question) in $store.state.selected_questions" :key="index_of_question">
+            
+                <div class="question text">{{question.text}}</div>
                     <div class="options-container">
                         <div class="option" v-for="(choice,index_of_choice) in question.choices" :key="index_of_choice">
-                            <input class="option-input radio " type="radio" :value="[question.id , choice]" v-model="selected_choices[index_of_question]">
+                            <input class="option-input radio" type="radio" :value="[question.clubId , index_of_choice]" v-model="$store.state.selected_choices[index_of_question]">
                             <label class="label" :for="choice">
                                 <span class="text">{{choice}}</span>
                             </label>
                         </div>       
                     </div>
-                
             </div>
             <div class=" button_container">  
                 <div class="btn-holder">
-                    <button @click="()=>$router.push('/questionnaire_result')" class="submit_button"><span> SUBMIT </span></button>
+                    <button @click=" goToQuestionnaireResultPage()" class="submit_button"><span> SUBMIT </span></button>
                 </div>
             </div>
             
@@ -33,65 +33,15 @@
             },
         name:"Questionnaire",
         data() { return{
-            selected_choices:[],
-            questions:[
-	    	{ 
-                id:1,
-	    		subclubName:"Yoga",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-	    		
-	    	},
-	    	{  
-                id:2,
-	    		subclubName:"Art",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-                
-	    	},{ 
-                id:1,
-	    		subclubName:"Yoga",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-	    		
-	    	},
-	    	{  
-                id:2,
-	    		subclubName:"Art",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-                
-	    	},
-            { 
-                id:1,
-	    		subclubName:"Yoga",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-	    		
-	    	},
-	    	{  
-                id:2,
-	    		subclubName:"Art",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-                
-	    	},{ 
-                id:1,
-	    		subclubName:"Yoga",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-	    		
-	    	},
-	    	{  
-                id:2,
-	    		subclubName:"Art",
-	    		questionText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, hic?", 
-	    		choices: ["0-200","200-400","400-600","600+"],
-                
-	    	}
-	          ]
+            selected_choices: []
         }
     },
+       methods:{
+            goToQuestionnaireResultPage(){
+                this.$store.commit("analyzeQuestions");
+                this.$router.push("/questionnaire_result");
+            }
+    }
     
     }
     

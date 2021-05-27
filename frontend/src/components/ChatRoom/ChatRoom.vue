@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import conversations from "../store/ChatRoomData.js";
-import messaging from "../components/ChatRoom/ChatRoomActiveMessage.vue";
+import conversations from "@/store/ChatRoomData.js";
+import messaging from "@/components/ChatRoom/ChatRoomActiveMessage.vue";
     export default {
         components : {
             messaging, 

@@ -1,31 +1,71 @@
 <template>
+  <article>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    </head>
     <body>
       <main>
         <div class="big-box">
-            <a href="#" class="logo">Interest Club</a>
-          <form class="login" action="#">
-            <input type="email" class="email" placeholder="Email" />
-            <input type="password" class="input" placeholder="Password"/>
+          <div class="logo">
+            <a href="#" class="logo">Logo</a>
+          </div>
+          <form @submit.prevent="submitForm" class="login" action="#">
+            <input type="email" v-model="email" class="email" placeholder="Email" />
+            <input type="password" v-model="password" class="input" placeholder="Password"/>
             <button class="login">Log In</button>
             <hr class="hr-text" data-content="Or">
-            <button class="facebook" ><img src="~@/assets/fb.jpeg" width="20" height="20" style="float:left">Continue with Facebook</button>
-            <button class="google"><img src="~@/assets/google.jpeg" width="20" height="20" style="float:left">Continue with Google</button>
-            <a class="forgot_password" href="#">Forgot password?</a>
+            <button class="facebook" ><img src="~@/assets/fb.jpg" width="20" height="20" style="float:left">Continue with Facebook</button>
+            <button class="google"><img src="~@/assets/google.jpg" width="20" height="20" style="float:left;margin-right:0.5em">Continue with Google</button>
+            <a href="#">Forgot password?</a>
           </form>
         </div>
         <div class="small-box">
-           <p>Don't have an account? <a href="#" @click="()=>$router.push('/sign_up')"><Strong>Sign up</Strong></a></p>
+           <p>Don't have an account? <a href="#" @click="goToSignUp()"><Strong>Sign up</Strong></a></p>
         </div>
       </main>
     </body>
+  </article>
 </template>
 
 <script>
-  
-  export default {
+
+import axios from 'axios';
+
+export default {
   name: "SignIn",
-    
+  methods: {
+    goToSignUp(){
+      this.$router.push({path: "/sign_up"});
+    },
+    async submitForm(){
+      const response = await axios.post('http://localhost:4000/api/User/authenticate',{
+        email: this.email,
+        password: this.password
+      }).then((response) => {
+        this.$router.push('/sub_club_selection');
+      }).catch((error) =>{
+        console.log(error)
+      })
+
+//      localStorage.setItem('token', response.data.jwtToken);
+    },
+
+  },
+ 
+  data(){
+    return{
+      email:'',
+      password: '',
+
+    };
+  },
+  components:{
+
   }
+
+  }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -35,35 +75,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Alegreya Sans', sans-serif;
-  }
-  .logo{
-    text-decoration: none;
-    font-weight: 800;
-    color: #742957;
-    font-size: 1.8em;
-    margin:1em;
-    display: flex;
-    justify-content: center;
   }
   .big-box{
-    background: #f5e2ee;
-    margin:5%;
-    border-radius: 2em;
-    border: 0.2em solid rgb(245, 219, 227);
-  }
-  .small-box{
-    margin-bottom: 25%;
-    background: #f5e2ee;
+    background: #f5e7f3;
+    margin-top:5%;
+    margin-bottom: 5%;
     border-radius: 2em;
     margin-right: 5%;
     margin-left: 5%;
     border: 0.2em solid rgb(245, 219, 227);
-    display:flex;
-    justify-content: center;
-    align-items: center;
+  }
+  .small-box{
+    margin-bottom: 25%;
+    background: #f5e7f3;
+    border-radius: 2em;
+    margin-right: 5%;
+    margin-left: 5%;
+    border: 0.2em solid rgb(245, 219, 227);
     p{
+      font-family: Alegreya Sans;
       text-align: center;
+      margin-top: 3%;
       color: black;
       font-size: 125%;
       
@@ -85,9 +117,28 @@
     grid-area: small-box ;
   }
   .big-box{
+    
     grid-area: big-box;
+    
   }
-
+  .logo{
+    padding-top: 15%;
+    margin-left: 26%;
+  }
+  .logo a{
+    
+    text-decoration: none;
+    color:black;
+    font-family: Alegreya Sans;
+    font-size: 130%;
+  }
+  a{
+    color:#222;
+    text-decoration: none;
+    margin-top: 5%;
+    font-size: 1.5rem;
+    font-family: Alegreya Sans;
+  }
   form{
     position:relative;
     top: 0;
@@ -95,6 +146,7 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    margin-top:10%;
     text-align: center;
     
     input{
@@ -105,6 +157,7 @@
       width: 60%;
       margin: 1%;
       overflow: hidden;
+      font-family: Alegreya Sans;
       &:focus{
         outline: none;
         
@@ -123,9 +176,10 @@
     height: 1.5em;
     width: 50%;
     opacity: .5;
-
+    font-family: Alegreya Sans;
     &:before {
       content: '';
+
       background: black;
       position: absolute;
       left: 0;
@@ -138,6 +192,7 @@
       position: relative;
       display: inline-block;
       color: black;
+
       padding: 0 .5em;
       line-height: 1.5em;
       // this is really the only tricky part, you need to specify the background color of the container element...
@@ -178,7 +233,9 @@
     letter-spacing: 0.1em;
     border-radius: 5em;
     width: 60%;  
+    margin: 1%;
     overflow: hidden;
+    font-family: Alegreya Sans;
     &:active{
       transform: scale(.9);
     }
@@ -189,7 +246,7 @@
   button.login{
     border-radius: 2em;
     border:0.1em solid #000000;
-    background-color: #742957b6;
+    background-color: #a36f9c;
     color: #ffff;
     font-size: 1rem;
     font-weight: bold;
@@ -197,17 +254,14 @@
     padding: 2% 3%;
     margin-top: 3%;
     letter-spacing: 0.1em;
+    font-family: Alegreya Sans;
     &:active{
       transform: scale(.9);
     }
+
     &:focus{
       outline: none;
     }
-  }
-  .forgot_password{
-      text-decoration: none;
-      color:black;
-      margin-top: 1em;
   }
   @media screen and (max-width:1000px){
     button.google, button.facebook{ 
