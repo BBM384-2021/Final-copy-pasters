@@ -14,10 +14,10 @@
             <div v-if="show" class="big-box-member">
                 <div class="timeline-members-chatroom-event-ratereview">
                     <div class="tab">                      
-                        <button id="1" class="tablinks" @click="switchTo('Members')">Members</button>
-                        <button id="2" class="tablinks" @click="switchTo('Chat Room')">Chat Room</button>
-                        <button id="3" class="tablinks" @click="switchTo('Events')">Events</button>
-                        <button id="4" class="tablinks" @click="switchTo('Rate&Review')">Rate&#38;Review</button>    
+                        <button id="_1" class="tablinks" @click="switchTo('Members')">Members</button>
+                        <button id="_2" class="tablinks" @click="switchTo('Chat Room')">Chat Room</button>
+                        <button id="_3" class="tablinks" @click="switchTo('Events')">Events</button>
+                        <button id="_4" class="tablinks" @click="switchTo('Rate&Review')">Rate&#38;Review</button>    
                     </div>
                     <event v-if="eventsShow"></event>
                     <members v-if="membersShow"></members>
@@ -186,16 +186,16 @@ img{
 }
 
 
-button#1{
+button#_1{
     grid-area: button1;
 }
-button#2{
+button#_2{
     grid-area: button2;
 }
-button#3{
+button#_3{
     grid-area: button3;
 }
-button#4{
+button#_4{
     grid-area: button4;
 }
 
