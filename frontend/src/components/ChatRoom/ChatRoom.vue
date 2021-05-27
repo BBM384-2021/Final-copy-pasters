@@ -2,13 +2,7 @@
     <div>
         <clubheader></clubheader>
         <div class="message-container column">
-               <!--- <div class="user">
-                    <div class="profile-image">
-                    <img class="image" :src="require('@/assets/profile-photos/' + conversationsa[activeIndex].user + '.png')">
-                    </div>
-                    <span>{{conversationsa[activeIndex].user}}</span>
-                </div>-->
-                .
+               
                 <div class="list-messages">
                     <div class="scroll" id="container">
                         <div class="messages">
