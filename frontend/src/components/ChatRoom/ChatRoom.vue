@@ -32,7 +32,7 @@
 <script>
 import SubClubPageHeader from "../components/SubClubPage/SubClubPageHeader.vue";
 import conversations from "../store/ChatRoomData.js";
-import messaging from "../components/PrivateMessage/ChatRoomActiveMessage.vue";
+import messaging from "../components/ChatRoom/ChatRoomActiveMessage.vue";
     export default {
         components : {
             "clubheader" : SubClubPageHeader,
