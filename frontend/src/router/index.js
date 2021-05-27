@@ -12,6 +12,7 @@ import SupportPage from '../views/SupportPage.vue'
 import SupportInfo from '../components/Support/SupportInfo.vue'
 import PrivateMessage from '../views/PrivateMessage.vue'
 import ProfileAndSetting from '../views/ProfileAndSetting.vue'
+import ProfilePage from '../views/ProfilePage.vue'
 const routes = [
   {
     path: '/',
@@ -77,6 +78,11 @@ const routes = [
     path: '/profile_page',
     name: 'ProfileAndSetting',
     component: ProfileAndSetting
+  },
+  {
+    path: '/profile_page/:firstName',
+    name: 'ProfilePage',
+    component: ProfilePage
   },
   
 ]
