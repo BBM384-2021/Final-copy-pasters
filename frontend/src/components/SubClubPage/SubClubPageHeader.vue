@@ -16,7 +16,7 @@
               <input type="text" placeholder="Search clubs, sub-clubs and people">
             </div>
             <div class="icons">
-              <button class="btn"><i class="fa fa-home" ></i></button>
+              <button @click=" ()=>$router.push('/entry_page')" class="btn"><i class="fa fa-home" ></i></button>
               <button class="btn" @click=" ()=>$router.push('/private_message')"><i class="fa fa-comment"></i></button>
               <button class="btn"><i class="fa fa-user"></i></button>
             </div>

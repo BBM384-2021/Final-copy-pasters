@@ -637,8 +637,12 @@ export default createStore({
   },
   getters:{
     getSubClubs(state){
-      return state.subclubs.filter(s => s.name)
-    }
+      return state.selected_sub_clubs.filter(s => s.name)
+    },
+	getUserSubClubs(state){
+		return state.selected_sub_clubs.filter(s => s.name)
+	  }, 	
+  
   }
 
 

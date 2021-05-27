@@ -6,8 +6,8 @@
             <form class="subclub-form" action="#">
                 <div class="subclub" v-for="club in userSubClubs" :key="club">
                     <div class="image-div">
-                        <router-link class="select-subclub" :to="`/sub_club_page/${club.title}`"><img class="subclub-image" :src="club.imgUrl"></router-link> 
-                        <div class="text">{{club.title}}</div>
+                        <router-link class="select-subclub" :to="`/sub_club_page/${club.name}`"><img class="subclub-image" :src='require("@/assets/sub-clubs-images/" + club.name+".jpeg")'></router-link> 
+                        <div class="text">{{club.name}}</div>
                     </div>
                 </div>
                 <div class="wrapper">
@@ -34,12 +34,12 @@ export default{
             subclubs:[{ 
                     id:1,
 	    		    name:"Yoga",
-	    		    img: require("../assets/sub-clubs-images/Yoga.jpeg")
+	    		    img: require("@/assets/sub-clubs-images/Yoga.jpeg")
             },
 	        {
                     id:2,
 	    		    name: "Piano",
-                    img:require("../assets/sub-clubs-images/Piano.jpeg")}]
+                    img:require("@/assets/sub-clubs-images/Piano.jpeg")}]
 	    }
       }
     },

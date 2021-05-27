@@ -51,10 +51,11 @@ export default {
         acceptTerms: true
       }).then((response) => {
         console.log(response)
+            this.$router.push('/sub_club_selection');
       }).catch((error) => {
         console.log(error)
       });
-      this.$router.push({path: "/sign_in"});
+      this.$router.push('/sign_in');
     }
   },
   data(){
