@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="wrapper">
-                    <router-link :to="'/join_more_sub_clubs/'"><img class="more" src="~@/assets/background.jpeg"></router-link> 
+                    <router-link @click="updateCurrentSubClubName" :to="'/join_more_sub_clubs/'"><img class="more" src="~@/assets/background.jpeg"></router-link> 
                     <div class="text">Join more <br>sub-clubs...<br></div>
                 </div>
             </form>
@@ -51,7 +51,8 @@ export default{
     methods:{
         getImgUrl(imgUrl){
             return require(imgUrl)
-        }
+        },
+
     }
 
 }
