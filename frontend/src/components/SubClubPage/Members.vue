@@ -10,7 +10,8 @@
         <div class="members"  v-for="member in members" :key="member">
             <div class="member-wrapper">
                 <img src="~@/assets/profile-photos/user1.png">
-                <p class="name">{{member.firstName}}</p>
+                
+                <router-link class="name" :to="`/profile_page/${member.firstName}`">{{member.firstName}}</router-link>
             </div>
         </div>
     </fieldset>
@@ -105,6 +106,9 @@ img{
     float: right;
     margin-right: 70%;
     font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 
 p#admin{
