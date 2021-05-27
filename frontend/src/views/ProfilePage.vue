@@ -49,7 +49,6 @@
         </div>
     </div>
 </template>
-
 <script>
     import SubClubPageHeader from "../components/SubClubPage/SubClubPageHeader.vue";
     export default {
@@ -58,7 +57,7 @@
         },
         data(){
             return{
-                username:"Ashley Hearth",
+                username:this.$route.params.firstName,
                 biography:"Hacettepe University",
                 imageUrl:'',
                 common_subclubs:[
@@ -67,27 +66,21 @@
                     name:"Yoga",
                     
                 },
-
                 {  
                     id:4,
                     name:"Piano",
                 
                 },
-
                 ],
-
             }
     },
     }
 </script>
-
 <style lang="scss" scoped>
-
     @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500&display=swap');
     * {
       font-family:'Alegreya Sans', sans-serif;
     }
-
     .flex-body{
         margin:20px;
         padding: 3%;
@@ -103,7 +96,6 @@
         //align-self:flex-start ;
         
     }
-
     .bio{
         padding: 3%;
         margin-left: -5px;
@@ -112,7 +104,6 @@
         height: 100px;
         border: 2px solid #a56a9d;
     }
-
     .profile-photo-container{
         display: flex;
         flex-direction: row;  
@@ -148,14 +139,12 @@
     
     }
     
-
     .subclub-item{
         width: 50px;
         height: 60px;
         display: flex;
         flex-direction: column;  
     }
-
     .subclub-image{
         width: 50px;
         height: 50px;
@@ -169,7 +158,6 @@
         height: 50px;
         border-radius: 3px;
     }
-
     .desc{
         margin-left: 5px;
     }
@@ -179,7 +167,6 @@
         flex-direction: row;
      
     }
-
     .send-icon{
         margin-left: 15px;
         margin-top:15px;
@@ -188,7 +175,6 @@
     }
     .send-icon:hover{
         cursor: pointer;
-
     }
     
 </style>
