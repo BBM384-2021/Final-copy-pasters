@@ -25,22 +25,23 @@
                     <span>{{conversationsa[activeIndex].user}}</span>
                 </div>
                 <div class="list-messages">
-                    <messaging
-                    v-for="(message,i) in conversationsa[activeIndex].messages"
-                    v-bind:key="i"
-                    :content="message.content"
-                    :time="message.time"
-                    :verde="message.verde"
-
-                    
-                    />  
+                    <div class="scroll">
+                        <div class="messages">
+                            <messaging
+                            v-for="(message,i) in conversationsa[activeIndex].messages"
+                            v-bind:key="i"
+                            :content="message.content"
+                            :time="message.time"
+                            :verde="message.verde"
+                            />  
+                        </div>
+                    </div>
                 </div>
                 <div class="write-message list-messages ">
                     <div class="icon-area">
                         <input v-model="messageSend" v-on:keyup.enter="sendMessage" type="text" class="input" placeholder="Type a message">
-                        <div @click="sendMessage">
-                            <img src="~@/assets/icons/send.png" class="send-icon">
-                        </div>
+                        <i   @click="sendMessage" class='fa fa-paper-plane send-icon' style='font-size:20px;color:white'></i> 
+
                     </div>
                 </div>
             </div>
@@ -97,22 +98,24 @@
         display: flex;
         flex-direction: row;
         background: white;;
-        justify-content: space-between;
+       
         
     }
     .column{
-        height: 800px;
+        height: 600px;
         border-radius: 5px;
         border : 1px solid #a56a9d;
         padding: 5px;
         
     }
+
     .conversation-list-container{
         width: 40% ;
         background: white;
         border : 1px solid #a56a9d;
         padding:5px
     }
+
     .message-container{
         width: 60% ;
         background: #f0f0f0;
@@ -129,6 +132,7 @@
         border-bottom: 1px solid rgb(200, 200, 200);
         display: flex;
         flex-direction: row;
+
     }
     .user span{
         margin-top: 10px;
@@ -156,15 +160,19 @@
     .subtitle{
         color:gray;
     }
+
+
     .item:hover{
         background:#f0f0f0;
         cursor: pointer;
     }
+
     .title-text{
         margin-left: 10px;
         font-size: 20px;
         font-weight:bold;
     }
+
     .subtitle-text{
         font-size: 15px;
         color: gray;
@@ -176,19 +184,21 @@
     }   
      
     .list-messages{
-        height: 85%;
+        height: 75%;
         display: flex;
        // justify-content: flex-end;
         flex-direction: column;
     }
+
     .write-message{
+        margin: 5px;
         height: 37px;
-        bottom:35px;
+        bottom:100px;
         padding: 10px;
         border-radius:5px ;
         background: #a56a9d;
         
-    
+
     }
     .write-message input{
         border:none;
@@ -198,6 +208,7 @@
         font-size: 15px;
         font-family: 'Alegreya Sans', sans-serif;
     }
+
    
     .image{
         margin-top: 10px;
@@ -207,13 +218,21 @@
     }
     .icon-area{
         display: flex;
-      //  justify-content:space-between;
         flex-direction: row;
     }
     .send-icon{
         margin-left: 15px;
-        margin-top:5px;
-       
+        margin-top:8px;
         border-radius: 50px;
+    }
+    .messages{
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+     
+        
+    }
+    .scroll{
+        overflow-y: auto;
     }
 </style>
